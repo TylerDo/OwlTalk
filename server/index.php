@@ -11,7 +11,7 @@
 	<div class="row justify-content-center">
 		<div class="col-md-10 text-center">
 			<?php
-include "connection.php";
+include "connection.php"; //INSERT INTO TABLE
 if(isset($_POST['submit'])){
 	$name                 = $_POST['name'];
 	$username             = $_POST['username'];
@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 	$hobbies              = $_POST['hobbies'];
 	$Query = mysqli_query($con, "INSERT INTO users (name,username,location,hobbies) VALUES ('$name','$username', '$location','$hobbies')");
 	if($Query){
-		echo "<script>alert('User record is successfully inserted!')</script>";
+		echo "<script>alert('Student record is successfully inserted!')</script>";
 	}else{
 		echo "<script>alert('Sorry an error occured!')</script>";
 	}
@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
 ?>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Add User
+  Add Record
 </button>
 
 <!-- Modal -->
@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
        		<input type="text" name="hobbies" class="form-control" placeholder="Enter Hobbies" required="">
        	</div><!-- form-group -->
        	<div class="form-group">
-       		<input type="submit" name="submit" class="btn btn-info" value="Add User">
+       		<input type="submit" name="submit" class="btn btn-info" value="Add Student">
        	</div><!-- form-group -->
        </form><!-- form -->
       </div>
@@ -68,10 +68,21 @@ if(isset($_POST['submit'])){
     </div>
   </div>
 </div>
-<form action="" method="POST">
-    <label for="">Search: </label>
-    <input type="text" name="search" class="form-control">
-</form>
+
+<div class="container"><!--SEARCH BAR-->
+   
+    <form action="" method="POST">
+         <div class="input-group">
+              <input type="text" class="form-control" name="search" placeholder="Search Users" aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <input type="submit" class="btn btn-primary" name="submit_search" value="Submit"/>
+                <input type="submit" class="btn btn-info" name="reset"     value="Reset"/>
+          </div>
+        </div>
+    </form>
+  
+</div>
+
 
 <table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 	<thead>
@@ -91,11 +102,11 @@ $Show = mysqli_query($con, "SELECT * FROM users");
         printf("Error: %s\n", mysqli_error($con));
     exit();
 }
-    if(isset($_POST['search'])){
+    if(isset($_POST['submit_search'])){
         $search         = $_POST['search'];
         $Show = mysqli_query($con, "SELECT * FROM users where name LIKE '%$search%' or username LIKE '%$search%' or location LIKE '%$search%' or hobbies LIKE '%$search%' ");
     }
-while($r = mysqli_fetch_array($Show)): ?>
+while($r = mysqli_fetch_array($Show)): //Making the table?> 
     <tr>
     	<td><?php echo $r['name']; ?></td>
     	<td><?php echo $r['username']; ?></td>
