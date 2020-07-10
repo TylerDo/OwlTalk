@@ -26,10 +26,10 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./Milestone2/Cheese/index.html">Project</a></li>
+                        <?php echo '<li class="nav-item"><a class="nav-link js-scroll-trigger" href="./Milestone2/Cheese/index.php">Project</a></li>'; ?>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#progress">Progress</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./server/index.php">Search Database</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./server/index.php">Search Database</a></li> 
                     </ul>
                 </div>
             </div>
