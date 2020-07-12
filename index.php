@@ -47,7 +47,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">The creators of the Cheesy website! </h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-12">
@@ -117,23 +117,23 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Project</h2>
-                    <h3 class="section-subheading text-muted">Currently Undecided!</h3>
+                    <h3 class="section-subheading text-muted">Currently developing: CHEESY!</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-users fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">Connect</h4>
+                        <p class="text-muted">Cheesy let's the user meet and socialize with other likeminded people. Chat with new people and create new relationships</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Stay Virtual</h4>
+                        <p class="text-muted">Cheesy keeps the fun of socializing and making friends without the risk of getting germs!</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-lock fa-stack-1x fa-inverse"></i></span>
                         <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <p class="text-muted">Authenticated Moderators keep the platform clean from offensive language. And the developing team works hard to keeep all data safe and protected. </p>
                     </div>
                 </div>
             </div>
@@ -157,33 +157,33 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/idea.png" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>Milestone 1</h4>
-                                <h4 class="subheading">Soon to Come</h4>
+                                <h4 class="subheading">Project Proposal</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">The team has decided to build a social media website called, Cheesy. This project will connect students and allow simple communications between them. The idea is to maintain the social atmosphere of college while being at home due to the COVID epidemic</p></div>
                         </div>
                     </li>
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/gui.png" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>Milestone 2</h4>
-                                <h4 class="subheading">To Come...</h4>
+                                <h4 class="subheading">GUI Planning</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">The team has built a template of a basic graphic user interface resembling what the finsished project will look like.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/db.png" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2014</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4>Milestone 3</h4>
+                                <h4 class="subheading">Database and Protoype Setup</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">The team has planned what the backend database will contain and what data will be collected. To test it's functionality a simple vertical software prototype was implemented.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
