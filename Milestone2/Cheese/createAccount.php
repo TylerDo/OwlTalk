@@ -1,4 +1,6 @@
-<?php include("./inc/header.php")?>
+<?php 
+include("./inc/createAccount.php");
+include("./inc/headers/header.php")?>
 		
 		<!-- Icon/Logo Section -->
 	<section>
@@ -13,7 +15,7 @@
 	
 		<!-- User Form -->
 		
-    <form action="./server/server.php" method="POST">
+    <form action="./inc/createAccount.php" method="POST">
 	<section>
 		<div class="container" style="padding-top: 50px;">
 		    <div class="input-group input-group-sm mb-3">

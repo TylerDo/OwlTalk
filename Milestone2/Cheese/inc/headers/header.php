@@ -1,6 +1,3 @@
-
-<?php include("./server/server.php")?>
-
 <!-- Group 4 Project Cheese profile.html Tyler Do-->
 <html>
 

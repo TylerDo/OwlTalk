@@ -52,47 +52,6 @@ if(isset($_POST['create'])){
     header("location: ../createaccount.php");
 }
 
-if(isset($_POST['login'])){
-    if($_SESSION['username']){
-        $_SESSION['login_error'] = "Already logged in";
-        header("location: ../login.php");
-    }
-    else {
-        $username  = mysqli_real_escape_string($con, $_POST['username']);
-        $password1 = mysqli_real_escape_string($con, $_POST['password']);
-        $password = md5($password1);
-
-        $user_check_query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-
-        $results = mysqli_query($con, $user_check_query);
-        $user = mysqli_fetch_assoc($results);
-
-        if(!$user){
-            array_push($errors, "Could not login");
-            $_SESSION['login_error'] = "Could not login";
-        }
-
-        if(count($errors) == 0){
-            $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in!";
-            header("location: ../index.php");
-        }
-    //    if(count($errors) > 0){
-    //        foreach($errors as $error){
-    //            echo $error;
-    //        }
-    //    }
-        header("location: ../login.php");
-    }
-    
-}
-
-if(isset($_POST['logout'])){
-    if(isset($_SESSION['username'])){
-        session_unset();
-        header("location: ../index.php");
-    }   
-}
 
 
 

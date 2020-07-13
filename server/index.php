@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 	$username             = $_POST['username'];
 	$location             = $_POST['location'];
 	$hobbies              = $_POST['hobbies'];
-	$Query = mysqli_query($con, "INSERT INTO users (name,username,location,hobbies) VALUES ('$name','$username', '$location','$hobbies')");
+	$Query = mysqli_query($con, "INSERT INTO user (name,username,location,hobbies) VALUES ('$name','$username', '$location','$hobbies')");
 	if($Query){
 		echo "<script>alert('Student record is successfully inserted!')</script>";
 	}else{
@@ -97,14 +97,14 @@ if(isset($_POST['submit'])){
 	</thead>
 	<tbody>
 		<?php
-$Show = mysqli_query($con, "SELECT * FROM users");
+$Show = mysqli_query($con, "SELECT * FROM user");
     if (!$Show) {
         printf("Error: %s\n", mysqli_error($con));
     exit();
 }
     if(isset($_POST['submit_search'])){
         $search         = $_POST['search'];
-        $Show = mysqli_query($con, "SELECT * FROM users where name LIKE '%$search%' or username LIKE '%$search%' or location LIKE '%$search%' or hobbies LIKE '%$search%' ");
+        $Show = mysqli_query($con, "SELECT * FROM user where name LIKE '%$search%' or username LIKE '%$search%' or location LIKE '%$search%' or hobbies LIKE '%$search%' ");
     }
 while($r = mysqli_fetch_array($Show)): //Making the table?> 
     <tr>

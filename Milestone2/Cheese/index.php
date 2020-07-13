@@ -1,15 +1,24 @@
 <?php 
-    include("./server/server.php");
+    session_start();
     if(isset($_SESSION['username'])) 
          {
-             include("./inc/logged-out-header.php");
+             include("./inc/headers/logged-out-header.php");
          } //IF LOGGED IN 
       else
          {
-             include("./inc/logged-in-header.php");
-         } //IF LOGGED IN       
+             include("./inc/headers/logged-in-header.php");
+         } //IF LOGGED IN      
+
+
                ?>
 		
+		<?php if(isset($_SESSION['success'])) : ?>
+                   <div class="alert alert-success text-center">
+                       <?php echo $_SESSION['success']; 
+                            unset($_SESSION['success'])//SUCCESSFUL CREATION OF ACCOUNT?> 
+                   </div>
+                   
+        <?php endif ?>
 		<!-- Main Block Section -->
 		<section class="block-posts text-center mt-4">
 			<div class="container">

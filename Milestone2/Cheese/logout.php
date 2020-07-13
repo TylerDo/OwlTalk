@@ -1,7 +1,11 @@
-<?php include("./inc/header.php")?>
+<?php 
+include("./inc/headers/header.php");
+include("./inc/logout.php");
+?>
 
 
-<form action="./server/server.php" method="POST">
+
+<form action="./inc/logout.php" method="POST">
     <div>
         <button type="submit" name="logout" class="button-style btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Logout!">
         Logout

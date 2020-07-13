@@ -1,6 +1,13 @@
 
-<?php include("./inc/header.php")?>
-		
+<?php 
+include("./inc/login.php");
+include("./inc/headers/header.php");
+
+if(isset($_SESSION['username'])){
+    header('location: ./index.php');
+}
+?>
+
 		<!-- Icon/Logo Section -->
 	<section>
 		<div class="container text-center" style="padding-top: 50px;">
@@ -13,7 +20,7 @@
 	</section>
 	
 		<!-- User Form -->
-		<form action="./server/server.php" method="POST">
+		<form action="./inc/login.php" method="POST">
             <section>
                 <div class="container" style="padding-top: 50px;">
                     <div class="input-group input-group-sm mb-3">
@@ -40,7 +47,7 @@
                             </button>
                         </div>
                         <div class="col-md">
-                            <?php echo '<a href="createAccount.php">Create Account</a>' ?>
+                            <?php echo '<a href="./createAccount.php">Create Account</a>' ?>
                             <i class="fa fa-plus-circle" style="padding-left: 5px;" aria-hidden="true"></i>
                         </div>
                         <div class="col-md">
