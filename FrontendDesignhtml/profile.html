@@ -37,9 +37,11 @@
 				</div>
 			</div>
 			<!-- Help Button -->
-			<button type="button" class="button-style btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Click for help" onclick="alert('Welcome to Cheese! The site to help people connect during COVID. Create a User profile by selecting the user icon in the top left. To post a block click on the new block button. The main page displays recent and popular blocks from other students. The navigation bar links will help you navigate through different categories on the site. Thank you for becoming apart of the cheese family!')">
+			<button type="button" class="button-style btn btn-info px-2" data-toggle="tooltip" data-placement="bottom" title="Click for help" onclick="alert('Welcome to Cheese! The site to help people connect during COVID. Create a User profile by selecting the user icon in the top left. To post a block click on the new block button. The main page displays recent and popular blocks from other students. The navigation bar links will help you navigate through different categories on the site. Thank you for becoming apart of the cheese family!')">
 			<i class="fa fa-question-circle" aria-hidden="true"></i>
 			</button>
+			<!-- Settings Button -->
+			<a class="button-style btn btn-info ml-2 px-2" href="settings.html" role="button"><i class="fa fa-cog" aria-hidden="true"></i></a>
 			</div>
 		</nav>
 		
@@ -47,16 +49,135 @@
 		<div class="container">
 			<div class="row">
 			<!-- Left side for user profile -->
-				<div class="col-4">
-					
+				<div class="col-md-4"">
+					<div class="card" style="width: 18rem;">
+						<img src="TylerDo.jpg" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Firstname LastName</h5>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Location</li>
+							<li class="list-group-item">Major</li>
+							<li class="list-group-item">Hobbies</li>
+						</ul>
+						<div class="card-body">
+							<a href="post.html" class="card-link">Bookmarked Posts</a>
+						</div>
+					</div>
 				</div>
-			<!-- Right side for block post -->
-				<div class="col-8">
-			
+			<!-- Center for block post -->
+				<div class="col-md-8">
+					<h3 class="head text-center mt-2">User Posts</h3>
+					<div class="dropdown-divider"></div>
+					<article class="block mb-3 shadow">
+							<div class="row">
+								<div class="col-sm-3">
+									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="TylerDo.jpg">
+								</div>
+								<div class="col-sm-9">
+									<h3> My Block Post Title</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+									Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+									ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+									in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+									sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+									mollit anim id est laborum.
+									</p>
+									<div class="user-post-share">
+									<a class="button-style btn btn-info btn-sm" href="post.html"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-bookmark-o" aria-hidden="true"></i></button>
+									</div>
+									<div class="user-likes">
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="block mb-3 shadow">
+							<div class="row">
+								<div class="col-sm-3">
+									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="TylerDo.jpg">
+								</div>
+								<div class="col-sm-9">
+									<h3> My Block Post Title</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+									Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+									ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+									in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+									sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+									mollit anim id est laborum.
+									</p>
+									<div class="user-post-share">
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-bookmark-o" aria-hidden="true"></i></button>
+									</div>
+									<div class="user-likes">
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="block mb-3 shadow">
+							<div class="row">
+								<div class="col-sm-3">
+									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="TylerDo.jpg">
+								</div>
+								<div class="col-sm-9">
+									<h3> My Block Post Title</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+									Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+									ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+									in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+									sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+									mollit anim id est laborum.
+									</p>
+									<div class="user-post-share">
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-bookmark-o" aria-hidden="true"></i></button>
+									</div>
+									<div class="user-likes">
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="block mb-3 shadow">
+							<div class="row">
+								<div class="col-sm-3">
+									<img class="img-fluid rounded-circle"  style="width:150px"alt="" src="TylerDo.jpg">
+								</div>
+								<div class="col-sm-9">
+									<h3> My Block Post Title</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+									Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+									ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+									in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+									sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+									mollit anim id est laborum.
+									</p>
+									<div class="user-post-share">
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-bookmark-o" aria-hidden="true"></i></button>
+									</div>
+									<div class="user-likes">
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+									</div>
+								</div>
+							</div>
+						</article>
 				</div>
-			</div>
-		</div>
-		
-		
+			</div>	
 	</body>
 </html>
