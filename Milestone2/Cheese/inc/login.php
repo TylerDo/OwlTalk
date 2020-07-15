@@ -41,7 +41,7 @@ if(isset($_POST['login'])){
                         exit();
                     }
                     else if($pwdCheck == true){
-                        $_SESSION['username'] = $username;
+                        $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['success'] = "You are logged in!";
                         header('location: ../index.php');
                         exit();

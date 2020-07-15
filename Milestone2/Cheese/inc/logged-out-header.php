@@ -1,8 +1,8 @@
-<!-- Group 4 Project Cheese profile.html Tyler Do-->
+<!-- Group 4 Project Cheese index.html Tyler Do-->
 <html>
 
 	<head>
-		<title>Profile Page</title>
+		<title>Cheese Home Page</title>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<!-- Google Fonts -->
@@ -13,28 +13,30 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 
-
 	<body>
-	<!-- Header Section -->
+		<!-- Header Section -->
 		<!-- Nav Bar -->
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
+			<!-- LOGOUT Button -->
+			<?php echo '<a class="button-style btn btn-info btn-sm" href="logout.php" role="button">Logout</a>'; ?>
+			<i class="fa fa-sign-in" style="padding-left: 5px;" aria-hidden="true"></i>
 			<!-- User Icon -->
 			<nav class="navbar navbar-light">
 				<?php echo '<a class="navbar-brand" href="profile.php">
 				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-				</a>' ?>
+				</a> '; ?> 
 			</nav>
-			<?php echo '<a class="navbar-brand" href="index.php">Cheese</a>' ?>
+			<?php echo '<a class="navbar-brand" href="#">Cheese</a> '; ?>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<?php echo '<a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>' ?>
-					<?php echo '<a class="nav-item nav-link" href="#">People</a>' ?>
-					<?php echo '<a class="nav-item nav-link" href="#">School</a>' ?>
-					<?php echo '<a class="nav-item nav-link" href="#">Hobbies</a>' ?>
+					<?php echo '<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> '; ?>
+					<?php echo '<a class="nav-item nav-link" href="#">People</a> '; ?>
+					<?php echo '<a class="nav-item nav-link" href="#">School</a> '; ?>
+					<?php echo '<a class="nav-item nav-link" href="#">Hobbies</a> '; ?>
 				</div>
 			</div>
 			<!-- Help Button -->
@@ -43,7 +45,3 @@
 			</button>
 			</div>
 		</nav>
-		
-		<div class="container text-center">
-		
-	

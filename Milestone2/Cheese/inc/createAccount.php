@@ -75,9 +75,8 @@ if(isset($_POST['create'])){
                 mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPassword);
                 mysqli_stmt_execute($stmt);
                 
-                $_SESSION['success'] = "Account Created!";
-                $_SESSION['username'] = $username;
-                header('location: ../index.php');
+                $_SESSION['success'] = "Account Created! Please log in";
+                header('location: ../login.php');
                 exit();
             }
         }
