@@ -43,25 +43,6 @@
 							<img class="img-fluid rounded-circle"  style="width:150px"alt="" src="TylerDo.jpg">
 						</div>
 						<div class="col-sm-9">
-							<form action="./inc/updatePost.php" method="POST" class="">
-								<div class="form-group">
-									<label for="title">Title</label>
-									<input name="title" type="text" class="form-control" id="blockTitle">
-								</div>
-								<div class="form-group">
-									<label for="textareaBlock">Write Post</label>
-									<textarea name="body" class="form-control" id="blockTextArea" rows= "5"></textarea>
-								</div>
-								
-								<button type="submit" name="login" class="btn btn-success btn-md" data-toggle="tooltip" data-placement="bottom" title="Login!">
-                            	Submit
-                            	</button>
-								<button onClick 
-								onclick="editPost('. $post_id .');"
-								class="cancelButton" data-toggle="tooltip" data-placement="bottom" title="Login!">
-                           		 Cancel
-                            	</button>
-							</form>
 							<h3> My Block Post Title</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

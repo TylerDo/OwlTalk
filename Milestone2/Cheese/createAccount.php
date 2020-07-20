@@ -1,5 +1,5 @@
 <?php 
-include("./inc/createAccount.php");
+include("./inc/createAccount-handler.php");
 include("./inc/headers/header.php")?>
 		
 		<!-- Icon/Logo Section -->

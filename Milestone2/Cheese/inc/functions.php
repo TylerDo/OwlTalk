@@ -35,7 +35,7 @@
                                 </div>
                                
                                 <div class="col-sm-9 form'. $post_id .'">
-                                <form action="./inc/update.php" method="POST" class="d-none">
+                                <form action="./inc/update-post-handler.php" method="POST" class="d-none">
 										<div class="form-group">
 											<label for="title">Title</label>
 											<input name="title" type="text" class="title form-control" id="blockTitle">
@@ -66,7 +66,7 @@
                                     <div class="user-post-share">
                                     <button class="button-style btn btn-info btn-sm"><i class="fa fa-comment-o" aria-hidden="true"></i></button>'
                                     . 
-                                    ($current_user_id === $user_id ? '<a href="/test/Milestone2/Cheese/inc/delete-handler.php?delete='.$post_id.'" class="button-style btn btn-info btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                    ($current_user_id === $user_id ? '<a href="/~cen4010s2020_g04/Milestone2/Cheese/inc/delete-handler.php?delete='.$post_id.'" class="button-style btn btn-info btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 
                                     <button onclick="editPost('. $post_id .');" class="button-style btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                     </div>' : '') 

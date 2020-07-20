@@ -1,6 +1,6 @@
 
 <?php 
-include("./inc/login.php");
+include("./inc/login-handler.php");
 include("./inc/headers/header.php");
 
 if(isset($_SESSION['username'])){

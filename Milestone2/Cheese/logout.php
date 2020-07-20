@@ -1,6 +1,6 @@
 <?php 
 include("./inc/headers/header.php");
-include("./inc/logout.php");
+include("./inc/logout-handler.php");
 ?>
 
 
