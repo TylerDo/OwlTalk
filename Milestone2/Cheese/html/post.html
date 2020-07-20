@@ -9,7 +9,7 @@
 		<!-- Font Awesome Icons 4.7.0 -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Main color Scheme -->
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		<!-- Javascript -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -26,7 +26,7 @@
 			<div class="container">
 			<!-- Login Button -->
 			<a class="button-style btn btn-info btn-sm" href="login.html" role="button">Login</a>
-			<i class="fa fa-sign-in" style="padding-left aria-hidden="true"></i>
+			<i class="fa fa-sign-in" style="padding-left" aria-hidden="true"></i>
 			<!-- User Icon -->
 			<nav class="navbar navbar-light">
 				<a class="navbar-brand" href="profile.html">
@@ -46,11 +46,9 @@
 				</div>
 			</div>
 			<!-- Help Button -->
-			<button type="button" class="button-style btn btn-info px-2" data-toggle="tooltip" data-placement="bottom" title="Click for help" onclick="alert('Welcome to Cheese! The site to help people connect during COVID. Create a User profile by selecting the user icon in the top left. To post a block click on the new block button. The main page displays recent and popular blocks from other students. The navigation bar links will help you navigate through different categories on the site. Thank you for becoming apart of the cheese family!')">
+			<button type="button" class="button-style btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Click for help" onclick="alert('Welcome to Cheese! The site to help people connect during COVID. Create a User profile by selecting the user icon in the top left. To post a block click on the new block button. The main page displays recent and popular blocks from other students. The navigation bar links will help you navigate through different categories on the site. Thank you for becoming apart of the cheese family!')">
 			<i class="fa fa-question-circle" aria-hidden="true"></i>
 			</button>
-			<!-- Settings Button -->
-			<a class="button-style btn btn-info ml-2 px-2" href="settings.html" role="button"><i class="fa fa-cog" aria-hidden="true"></i></a>
 			</div>
 		</nav>
 	
@@ -62,7 +60,7 @@
 						<article class="block mb-3 shadow">
 							<div class="row">
 								<div class="col-sm-3">
-									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="TylerDo.jpg">
+									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="../TylerDo.jpg">
 								</div>
 								<div class="col-sm-9">
 									<h3> My Block Post Title</h3>
@@ -90,7 +88,6 @@
 								<div class="d-flex flex-row add-comment-section mt-4 mb-4"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38"><input type="text" class="form-control mr-3" placeholder="Add comment">
 								<button class="button-style btn btn-info btn-sm" type="button">Comment</button>
 								</div>
-								<div class="dropdown-divider"></div>
 									<div class="commented-section mt-2">
 										<div class="d-flex flex-row align-items-center commented-user">
 											<h5 class="mr-2">Firstname Lastname</h5>
@@ -102,7 +99,7 @@
 										</div>
 											<div class="reply-section">
 												<div class="d-flex flex-row align-items-center voting-icons">
-												<button class="button-style btn btn-info btn-sm mr-2"><i class="fa fa-caret-square-o-up"></i></button>
+												<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up"></i></button>
 												<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down"></i></button>
 												<span class="ml-2">12</span>
 												<span class="dot ml-2"></span>
@@ -112,31 +109,27 @@
 										</div>
 										<div class="commented-section mt-2">
 											<div class="d-flex flex-row align-items-center commented-user">
-												<h5 class="mr-2 mt-2">Firstname Lastname</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">5 hours ago</span>
+												<h5 class="mr-2">Firstname Lastname</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">5 hours ago</span>
 											</div>
-										<div class="comment-text-sm">
-											<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</span>
-										</div>
+										<div class="comment-text-sm"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</span>
 											<div class="reply-section">
 												<div class="d-flex flex-row align-items-center voting-icons">
-												<button class="button-style btn btn-info btn-sm mr-2"><i class="fa fa-caret-square-o-up"></i></button>
+												<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up"></i></button>
 												<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down"></i></button>
 												<span class="ml-2">10</span>
 												<span class="dot ml-2"></span>
 												<h6 class="ml-2 mt-1">Reply</h6>
 												</div>
-											</div>
+										</div>
 										</div>
 										<div class="commented-section mt-2">
 											<div class="d-flex flex-row align-items-center commented-user">
-												<h5 class="mr-2 mt-2">FirstName Lastname</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">10 hours ago</span>
+												<h5 class="mr-2">FirstName Lastname</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">10 hours ago</span>
 											</div>
-											<div class="comment-text-sm">
-											<span>Nunc sed id semper risus in hendrerit gravida rutrum. Non odio euismod lacinia at quis risus sed. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Enim facilisis gravida neque convallis a. In mollis nunc sed id. Adipiscing elit pellentesque habitant morbi tristique senectus et netus. Ultrices mi tempus imperdiet nulla malesuada pellentesque.</span>
-											</div>
+											<div class="comment-text-sm"><span>Nunc sed id semper risus in hendrerit gravida rutrum. Non odio euismod lacinia at quis risus sed. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Enim facilisis gravida neque convallis a. In mollis nunc sed id. Adipiscing elit pellentesque habitant morbi tristique senectus et netus. Ultrices mi tempus imperdiet nulla malesuada pellentesque.</span>
 												<div class="reply-section">
 												<div class="d-flex flex-row align-items-center voting-icons">
-												<button class="button-style btn btn-info btn-sm mr-2"><i class="fa fa-caret-square-o-up"></i></button>
+												<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up"></i></button>
 												<button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down"></i></button>
 												<span class="ml-2">5</span>
 												<span class="dot ml-2"></span>
@@ -144,7 +137,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
+							</div>
 						</article>
 					</div>
 				</div>

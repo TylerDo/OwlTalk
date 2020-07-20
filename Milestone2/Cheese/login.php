@@ -20,7 +20,7 @@ if(isset($_SESSION['username'])){
 	</section>
 	
 		<!-- User Form -->
-		<form action="./inc/login.php" method="POST">
+		<form action="./inc/login-handler.php" method="POST">
             <section>
                 <div class="container" style="padding-top: 50px;">
                     <div class="input-group input-group-sm mb-3">

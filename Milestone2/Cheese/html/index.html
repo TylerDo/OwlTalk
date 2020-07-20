@@ -10,7 +10,7 @@
 		<!-- Font Awesome Icons 4.7.0 -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Main color Scheme -->
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		<!-- Javascript -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -26,8 +26,8 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
 			<!-- Login Button -->
-			<a class="button-style btn btn-info btn-sm px-1 mr-2" href="login.html" role="button">Login</a>
-			<i class="fa fa-sign-in" style="padding-left aria-hidden="true"></i>
+			<a class="button-style btn btn-info btn-sm" href="login.html" role="button">Login</a>
+			<i class="fa fa-sign-in" style="padding-left" aria-hidden="true"></i>
 			<!-- User Icon -->
 			<nav class="navbar navbar-light">
 				<a class="navbar-brand" href="profile.html">
@@ -47,15 +47,13 @@
 				</div>
 			</div>
 			<!-- Help Button -->
-			<button type="button" class="button-style btn btn-info px-2" data-toggle="tooltip" data-placement="bottom" title="Click for help" onclick="alert('Welcome to Cheese! The site to help people connect during COVID. Create a User profile by selecting the user icon in the top left. To post a block click on the new block button. The main page displays recent and popular blocks from other students. The navigation bar links will help you navigate through different categories on the site. Thank you for becoming apart of the cheese family!')">
+			<button type="button" class="button-style btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Click for help" onclick="alert('Welcome to Cheese! The site to help people connect during COVID. Create a User profile by selecting the user icon in the top left. To post a block click on the new block button. The main page displays recent and popular blocks from other students. The navigation bar links will help you navigate through different categories on the site. Thank you for becoming apart of the cheese family!')">
 			<i class="fa fa-question-circle" aria-hidden="true"></i>
 			</button>
-			<!-- Settings Button -->
-			<a class="button-style btn btn-info ml-2 px-2" href="settings.html" role="button"><i class="fa fa-cog" aria-hidden="true"></i></a>
 			</div>
 		</nav>
 		
-		<!-- Main Block Section -->
+		<!-- Main Block Section MODAL-->
 		<div class="container text-center">
 			<!-- Create a new block button with modal -->
 				<button type="button" class="button-style btn btn-info btn-sm" id="createBlockButton" data-toggle="modal" data-target="#createBlock">Create Block</button>
@@ -70,24 +68,27 @@
 								</button>
 						</div>
 						<div class="modal-body">
-							<form>
+							<form action="" method="POST">
 								<div class="form-group">
 									<label for="title">Title</label>
-									<input type="text" class="form-control" id="blockTitle">
+									<input name="title" type="text" class="form-control" id="blockTitle">
 								</div>
 								<div class="form-group">
 									<label for="textareaBlock">Write Post</label>
-									<textarea class="form-control" id="blockTextArea" rows= "5"></textarea>
+									<textarea name="body" class="form-control" id="blockTextArea" rows= "5"></textarea>
 								</div>
+								<div class="modal-footer">
+                                    <button type="button" class="button-style btn btn-info btn-sm" data-dismiss="modal">Close</button>
+                                    <button type="submit" name="create-post" type="button" class="button-style btn btn-info btn-sm">Post Block</button>
+						        </div>
 							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="button-style btn btn-info btn-sm" data-dismiss="modal">Close</button>
-							<button type="button" class="button-style btn btn-info btn-sm" data-dismiss="modal" onclick="post()">Post Block</button>
-						</div>
+						
+						
 					</div>
 				</div>
 			</div>
+            </div>
+
 		<section class="block-posts text-center mt-4">
 			<div class="container">
 			<div class="row">
@@ -108,7 +109,7 @@
 									mollit anim id est laborum.
 									</p>
 									<div class="user-post-share">
-									<a class="button-style btn btn-info btn-sm" href="post.html"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
+									<button class="button-style btn btn-info btn-sm"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
 									<button class="button-style btn btn-info btn-sm"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
 									<button class="button-style btn btn-info btn-sm"><i class="fa fa-bookmark-o" aria-hidden="true"></i></button>
 									</div>

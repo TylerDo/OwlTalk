@@ -15,7 +15,7 @@ include("./inc/headers/header.php")?>
 	
 		<!-- User Form -->
 		
-    <form action="./inc/createAccount.php" method="POST">
+    <form action="./inc/createAccount-handler.php" method="POST">
 	<section>
 		<div class="container" style="padding-top: 50px;">
 		    <div class="input-group input-group-sm mb-3">
