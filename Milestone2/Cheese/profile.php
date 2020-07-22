@@ -1,51 +1,54 @@
 <!-- Group 4 Project Cheese profile.html Tyler Do-->
-<html>
-
-	<head>
-		<title>Profile Page</title>
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-		<!-- Font Awesome Icons 4.7.0 -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- Main color Scheme -->
-		<link rel="stylesheet" href="css/main.css">
-	</head>
-
-	<body>
-	<!-- Header Section -->
-		<!-- Nav Bar -->
-		<nav class="navbar navbar-expand-lg">
-			<div class="container">
-			<!-- User Icon -->
-			<nav class="navbar navbar-light">
-				<a class="navbar-brand" href="profile.html">
-				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-				</a>
-			</nav>
-			<a class="navbar-brand" href="index.html">Cheese</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-item nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-					<a class="nav-item nav-link" href="#">People</a>
-					<a class="nav-item nav-link" href="#">School</a>
-					<a class="nav-item nav-link" href="#">Hobbies</a>
+<?php
+    session_start();
+    if(isset($_SESSION['user_id'])) 
+    {
+		include('./inc/headers/logged-in-header.php');
+		require "./inc/connection.php";
+		//GET USERNAME
+		$user_id = $_SESSION['user_id'];
+		$sql = "SELECT username FROM users WHERE user_id = '$user_id'";
+		$sql_result = mysqli_query($con, $sql);
+		if($row = mysqli_fetch_assoc($sql_result)){
+			$username = $row['username'];
+		}
+    } //IF LOGGED IN 
+    else
+    {
+        header('location: index.php');
+    } //IF LOGGED IN      
+    
+    include('./inc/functions.php');
+?>
+		
+	<!-- Body Section -->
+		<div class="container">
+			<div class="row">
+			<!-- Left side for user profile -->
+				<div class="col-md-4"">
+					<div class="card" style="width: 18rem;">
+						<img src="default-picture.jpg" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title"><?php echo $username;?></h5>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Location</li>
+							<li class="list-group-item">Major</li>
+							<li class="list-group-item">Hobbies</li>
+						</ul>
+						<div class="card-body">
+							<a href="post.html" class="card-link">Bookmarked Posts</a>
+						</div>
+					</div>
 				</div>
-			</div>
-			<!-- Help Button -->
-			<button type="button" class="button-style btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Click for help" onclick="alert('Welcome to Cheese! The site to help people connect during COVID. Create a User profile by selecting the user icon in the top left. To post a block click on the new block button. The main page displays recent and popular blocks from other students. The navigation bar links will help you navigate through different categories on the site. Thank you for becoming apart of the cheese family!')">
-			<i class="fa fa-question-circle" aria-hidden="true"></i>
-			</button>
-			</div>
-		</nav>
-		
-		
-		
-		
-		
+			<!-- Center for block post -->
+				<div class="col-md-8">
+					<h3 class="head text-center mt-2"><?php echo $username;?> Posts</h3>
+					<div class="dropdown-divider"></div>
+					<article class="block mb-3 shadow">
+							<?php getPosts();?>
+					</article>
+				</div>
+			</div>	
 	</body>
 </html>

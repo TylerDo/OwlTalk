@@ -95,19 +95,22 @@
         $sql = "SELECT * FROM posts WHERE post_id = '$post_id'";
         $post_result = mysqli_query($con, $sql);
         if($row = mysqli_fetch_assoc($post_result)){
-            echo '<div class="row">
-            <div class="col-sm-3">
-                <img class="img-fluid rounded-circle" style="width:150px" alt="" src="default-picture.jpg">
-            </div>
-            <div class="col-sm-9">
-                <h3> '.$row['title'].'</h3>
-                <p>'.$row['body'].'</p>
-                <div class="user-post-share">
-                <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
-                <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+            echo '
+            <article class="block text-left mb-3 shadow">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-circle" style="width:150px" alt="" src="default-picture.jpg">
+                    </div>
+                    <div class="col-sm-9">
+                        <h3> '.$row['title'].'</h3>
+                        <p>'.$row['body'].'</p>
+                        <div class="user-post-share">
+                        <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+                        <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>';
+            </article>';
         }
         else{
             $_SESSION['error'] = 'post not found';
@@ -156,6 +159,40 @@
         }
         else{
             echo "";
+        }
+    }
+
+    function getPosts(){
+        if(isset($_SESSION['user_id'])){
+            require "connection.php";
+            $user_id = $_SESSION['user_id'];
+
+            $sql = "SELECT * FROM posts WHERE user_id = '$user_id'";
+            $post_result = mysqli_query($con, $sql);
+            if(mysqli_num_rows($post_result) > 0){
+                while($row = mysqli_fetch_assoc($post_result)){
+                    echo '
+                <article class="block text-left mb-3 shadow">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img class="img-fluid rounded-circle" style="width:150px" alt="" src="default-picture.jpg">
+                        </div>
+                        <div class="col-sm-9">
+                            <h3> '.$row['title'].'</h3>
+                            <p>'.$row['body'].'</p>
+                            <div class="user-post-share">
+                            <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+                            <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>';
+                }
+            }else{
+                echo '<p>No Posts made from this account</p>';
+            }
+        }else{
+            echo '';
         }
     }
 ?>

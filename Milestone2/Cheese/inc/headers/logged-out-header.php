@@ -31,9 +31,6 @@
 			<i class="fa fa-sign-in" style="padding-left: 5px;" aria-hidden="true"></i>
 			<!-- User Icon -->
 			<nav class="navbar navbar-light">
-				<?php echo '<a class="navbar-brand" href="profile.php">
-				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-				</a> '; ?> 
 			</nav>
 			<?php echo '<a class="navbar-brand" href="#">Cheese</a> '; ?>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
