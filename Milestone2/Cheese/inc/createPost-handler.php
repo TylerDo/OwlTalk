@@ -5,8 +5,8 @@ session_start();
 require "connection.php";
 
 if(isset($_POST['create-post'])){
-    $title = mysqli_real_escape_string($con, $_POST['title']);
-    $body = mysqli_real_escape_string($con, $_POST['body']);
+    $title = $_POST['title'];
+    $body = $_POST['body'];
     $likes = 0;
     
     if(!$_SESSION['user_id']){

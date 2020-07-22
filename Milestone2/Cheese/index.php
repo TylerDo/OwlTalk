@@ -9,7 +9,26 @@
          {
              include("./inc/headers/logged-out-header.php");
          } //IF LOGGED IN      
-               ?>
+              
+    if(isset($_POST['increment'])){
+        if(isset($_SESSION['user_id'])){
+            $post_id = (int)$_POST['post_id'];
+            if($post_id != 0){
+                increment($post_id);
+            }
+        }
+    }
+
+    if(isset($_POST['decrement'])){
+        if(isset($_SESSION['user_id'])){
+            $post_id = (int)$_POST['post_id'];
+            if($post_id != 0){
+                decrement($post_id);
+            }
+        }
+    }
+              ?>
+
 		
     <?php if(isset($_SESSION['success'])) : ?>
                <div class="alert alert-success text-center">

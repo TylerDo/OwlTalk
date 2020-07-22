@@ -1,4 +1,5 @@
 <?php
+    include('./inc/functions.php');
     session_start();
     if(isset($_SESSION['user_id'])) 
     {
@@ -8,8 +9,26 @@
     {
         include("./inc/headers/logged-out-header.php");
     } //IF LOGGED IN      
+
+    if(isset($_POST['increment'])){
+        if(isset($_SESSION['user_id'])){
+            $post_id = (int)$_POST['post_id'];
+            if($post_id != 0){
+                increment($post_id);
+            }
+        }
+    }
+
+    if(isset($_POST['decrement'])){
+        if(isset($_SESSION['user_id'])){
+            $post_id = (int)$_POST['post_id'];
+            if($post_id != 0){
+                decrement($post_id);
+            }
+        }
+    }
     
-    include('./inc/functions.php');
+    
     if(isset($_GET['id'])):
 ?>
 
@@ -19,6 +38,15 @@
 						unset($_SESSION['success'])
 						//SUCCESSFUL CREATION OF ACCOUNT?> 
                </div>
+<?php endif ?>
+
+<?php if(isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger text-center">
+        <?php echo $_SESSION['error']; 
+            unset($_SESSION['error'])
+            //SUCCESSFUL CREATION OF ACCOUNT?> 
+    </div>
+
 <?php endif ?>
 
 <section class="block-posts mt-4">

@@ -8,6 +8,9 @@ if(!$con){
 // $con = mysqli_connect("localhost","root","Jdtgr9704","production");
 
 // if(!$con){
-//    die("CONNECTION TO DB FAILED. " . mysqli_error($con));
+//   die("CONNECTION TO DB FAILED. " . mysqli_error($con));
 // }
+
+
+
 ?>

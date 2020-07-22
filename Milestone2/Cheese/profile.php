@@ -1,7 +1,7 @@
 <!-- Group 4 Project Cheese profile.html Tyler Do-->
 <?php
     session_start();
-    if(isset($_SESSION['user_id'])) 
+    if(isset($_SESSION['user_id'])) //IF LOGGED IN 
     {
 		include('./inc/headers/logged-in-header.php');
 		require "./inc/connection.php";
@@ -12,11 +12,11 @@
 		if($row = mysqli_fetch_assoc($sql_result)){
 			$username = $row['username'];
 		}
-    } //IF LOGGED IN 
-    else
+    } 
+    else //IF LOGGED OUT
     {
         header('location: index.php');
-    } //IF LOGGED IN      
+    }   
     
     include('./inc/functions.php');
 ?>

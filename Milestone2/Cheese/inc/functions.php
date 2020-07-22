@@ -16,6 +16,7 @@
                 $post_id = $row['post_id'];
                 $title = $row['title'];
                 $body  = $row['body'];
+                $likes = getLikes($post_id);
                 if(isset($_SESSION['user_id'])){
                     $current_user_id = $_SESSION['user_id'];
                 }else{
@@ -69,12 +70,15 @@
                                     <button onclick="editPost('. $post_id .');" class="button-style btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                     </div>' : '') 
                                     .
-                                    '<div class="user-likes">
-                                    <button onClick="like('. $post_id . ');" name="" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
-                                    <button onClick="dislike('. $post_id . ');" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
-                                    </div>
-                                    </div>
-                                </div>
+                                    '<form action="" method="POST">
+                                    <button name="increment" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+                                    '.$likes.'
+                                    <button name="decrement" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+        
+                                    <input style="display: none;" name="post_id" type="text" class="form-control"
+                                                    value="'.$post_id.'" >
+                                </form>
+                            </div>
                             </div>
                         </article>';
             }
@@ -91,7 +95,7 @@
             exit();
         }
 
-
+        $likes = getLikes($post_id);
         $sql = "SELECT * FROM posts WHERE post_id = '$post_id'";
         $post_result = mysqli_query($con, $sql);
         if($row = mysqli_fetch_assoc($post_result)){
@@ -105,8 +109,14 @@
                         <h3> '.$row['title'].'</h3>
                         <p>'.$row['body'].'</p>
                         <div class="user-post-share">
-                        <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
-                        <button class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+                        <form action="" method="POST">
+                            <button name="increment" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+                            '.$likes.'
+                            <button name="decrement" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+
+                            <input style="display: none;" name="post_id" type="text" class="form-control"
+                                            value="'.$post_id.'" >
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -128,19 +138,20 @@
             header('location: index.php');
             exit();
         }
-
+        getLikes($post_id);
         $sql = "SELECT u.username, c.date, c.body, c.likes 
         FROM users AS u, posts AS p, comment AS c 
-        WHERE p.post_id = '$post_id' AND p.post_id = c.post_id AND u.user_id = p.user_id;";
+        WHERE p.post_id = '$post_id' AND p.post_id = c.post_id AND u.user_id = c.user_id;";
         $post_result = mysqli_query($con, $sql);
         
-        if($row = mysqli_fetch_assoc($post_result)){
+        while($row = mysqli_fetch_assoc($post_result)){
+            $date = get_time_ago(strtotime($row['date']));
             echo '
             <div class="commented-section mt-4">
             <div class="d-flex flex-row align-items-center commented-user">
                 <h5 class="mr-2">'.$row['username'].'</h5>
                 <span class="dot mb-1"></span>
-                <span class="mb-1 ml-2">'.$row['date'].'</span>
+                <span class="mb-1 ml-2">'.$date.'</span>
             </div>
             <div class="comment-text-sm">
                 <span>'.$row['body'].'</span>
@@ -154,11 +165,7 @@
                     <h6 class="ml-2 mt-1">Reply</h6>
                     </div>
                 </div>
-        </div>
-    ';
-        }
-        else{
-            echo "";
+        </div>';
         }
     }
 
@@ -195,4 +202,133 @@
             echo '';
         }
     }
+
+    function get_time_ago( $time ){
+    date_default_timezone_set('America/New_York');
+    $time_difference = time() - $time;
+
+    if( $time_difference < 1 ) { return 'less than 1 second ago'; }
+    $condition = array( 12 * 30 * 24 * 60 * 60 =>  'year',
+                30 * 24 * 60 * 60       =>  'month',
+                24 * 60 * 60            =>  'day',
+                60 * 60                 =>  'hour',
+                60                      =>  'minute',
+                1                       =>  'second'
+    );
+
+    foreach( $condition as $secs => $str )
+    {
+        $d = $time_difference / $secs;
+
+        if( $d >= 1 )
+        {
+            $t = round( $d );
+            return 'about ' . $t . ' ' . $str . ( $t > 1 ? 's' : '' ) . ' ago';
+        }
+    }
+}
+
+function increment($post_id){
+    //Query the likes table
+    require "connection.php";
+    $user_id = $_SESSION['user_id'];
+
+    $sql = "SELECT * FROM likes WHERE user_id = '$user_id' AND post_id='$post_id'";
+    $post_result = mysqli_query($con, $sql);
+    if($row = mysqli_fetch_assoc($post_result)){
+        //if entry UPDATE and is 1 change to 0
+        //if entry UPDATE and is not 1 make 1
+        $current_likes = (int)$row['likes'];
+        if($current_likes == 1){
+            $sql = "UPDATE likes SET likes='0' WHERE post_id='$post_id' AND user_id='$user_id'";
+
+            if (!mysqli_query($con, $sql)) {
+                $_SESSION['error'] = "ERROR";
+            }
+        }
+        elseif($current_likes == 0 || $current_likes == -1){
+            $sql = "UPDATE likes SET likes='1' WHERE post_id='$post_id' AND user_id='$user_id'";
+
+            if (!mysqli_query($con, $sql)) {
+                $_SESSION['error'] = "ERROR";
+            }
+        }
+
+    }else{
+        //if no entry available then INSERT one with a 1 for the like
+        $likes = 1;
+        $sql = "INSERT INTO likes (user_id, post_id, likes) VALUES (?, ?, ?)";
+
+        $stmt = mysqli_stmt_init($con);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            $_SESSION['error'] = "ERROR";
+        }
+        else{ //ADD POST INTO DATABASE
+            mysqli_stmt_bind_param($stmt, "iii", $user_id, $post_id, $likes);
+            mysqli_stmt_execute($stmt);
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($con);
+    }
+
+    //if no entry available then INSERT one with a 1 for the like
+    //if entry UPDATE and is 1 change to 0
+    //if entry UPDATE and is not 1 make 1
+}
+
+function decrement($post_id){
+    //Query the likes table
+    require "connection.php";
+    $user_id = $_SESSION['user_id'];
+
+    $sql = "SELECT * FROM likes WHERE user_id = '$user_id' AND post_id='$post_id'";
+    $post_result = mysqli_query($con, $sql);
+    if($row = mysqli_fetch_assoc($post_result)){
+        //if entry UPDATE and is -1 change to 0
+        //if entry UPDATE and is not -1 make -1
+        $current_likes = (int)$row['likes'];
+        if($current_likes == -1){
+            $sql = "UPDATE likes SET likes='0' WHERE post_id='$post_id' AND user_id='$user_id'";
+
+            if (!mysqli_query($con, $sql)) {
+                $_SESSION['error'] = "ERROR";
+            }
+        }
+        elseif($current_likes == 0 || $current_likes == 1){
+            $sql = "UPDATE likes SET likes='-1' WHERE post_id='$post_id' AND user_id='$user_id'";
+
+            if (mysqli_query($con, $sql)) {
+            } else {
+            }
+        }
+
+    }else{
+        //if no entry available then INSERT one with a 1 for the like
+        $likes = -1;
+        $sql = "INSERT INTO likes (user_id, post_id, likes) VALUES (?, ?, ?)";
+
+        $stmt = mysqli_stmt_init($con);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+        }
+        else{ //ADD POST INTO DATABASE
+            mysqli_stmt_bind_param($stmt, "iii", $user_id, $post_id, $likes);
+            mysqli_stmt_execute($stmt);
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+    }
+
+    //if no entry available then INSERT one with a 1 for the like
+    //if entry UPDATE and is 1 change to 0
+    //if entry UPDATE and is not 1 make 1
+}
+
+function getLikes($post_id){
+    require "connection.php";
+    $sql = "SELECT SUM(likes) FROM likes WHERE post_id = '$post_id'";
+    $post_result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($post_result);
+    return $row['SUM(likes)'];
+
+}
 ?>
