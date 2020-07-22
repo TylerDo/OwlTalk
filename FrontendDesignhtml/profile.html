@@ -11,6 +11,13 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Main color Scheme -->
 		<link rel="stylesheet" href="css/main.css">
+		<!-- Javascript -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 	</head>
 
 	<body>
@@ -47,32 +54,67 @@
 		
 	<!-- Body Section -->
 		<div class="container">
-			<div class="row">
+		<!-- Modal -->
+			<div class="modal fade" id="updateProfile">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title">Edit Profile</h1>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="location">Location</label>
+									<input type="text" class="form-control" id="profileLocation">
+								</div>
+								<div class="form-group">
+									<label for="major">Major</label>
+									<input type="text" class="form-control" id="profileMajor">
+								</div>
+								<div class="form-group">
+									<label for="hobbies">Hobbies</label>
+									<input type="text" class="form-control" id="profileHobbies">
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="button-style btn btn-info btn-sm" data-dismiss="modal">Close</button>
+							<button type="button" class="button-style btn btn-info btn-sm" data-dismiss="modal" onclick="post()">Commit Changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row flex-nowrap">
 			<!-- Left side for user profile -->
 				<div class="col-md-4"">
-					<div class="card" style="width: 18rem;">
-						<img src="TylerDo.jpg" class="card-img-top" alt="...">
+					<div id="userProfile" class="card" style="width: 18rem;">
+						<img src="assets/TylerDo.jpg" class="card-img-top" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">Firstname LastName</h5>
 						</div>
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item">Location</li>
-							<li class="list-group-item">Major</li>
-							<li class="list-group-item">Hobbies</li>
+							<li id="location" class="list-group-item">Location</li>
+							<li id="major" class="list-group-item">Major</li>
+							<li id="hobbies" class="list-group-item">Hobbies</li>
 						</ul>
 						<div class="card-body">
 							<a href="post.html" class="card-link">Bookmarked Posts</a>
 						</div>
+						<!-- Create a new block button with modal -->
+						<button type="button" class="button-style btn btn-info btn-sm" id="updateProfileButton" data-toggle="modal" data-target="#updateProfile">Edit Profile</button>
 					</div>
-				</div>
+			</div>
 			<!-- Center for block post -->
 				<div class="col-md-8">
 					<h3 class="head text-center mt-2">User Posts</h3>
 					<div class="dropdown-divider"></div>
 					<article class="block mb-3 shadow">
-							<div class="row">
+							<div class="row flex-nowrap">
 								<div class="col-sm-3">
-									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="TylerDo.jpg">
+									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="assets/TylerDo.jpg">
 								</div>
 								<div class="col-sm-9">
 									<h3> My Block Post Title</h3>
@@ -99,7 +141,7 @@
 						<article class="block mb-3 shadow">
 							<div class="row">
 								<div class="col-sm-3">
-									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="TylerDo.jpg">
+									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="assets/TylerDo.jpg">
 								</div>
 								<div class="col-sm-9">
 									<h3> My Block Post Title</h3>
@@ -126,7 +168,7 @@
 						<article class="block mb-3 shadow">
 							<div class="row">
 								<div class="col-sm-3">
-									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="TylerDo.jpg">
+									<img class="img-fluid rounded-circle" style="width:150px" alt="" src="assets/TylerDo.jpg">
 								</div>
 								<div class="col-sm-9">
 									<h3> My Block Post Title</h3>
@@ -153,7 +195,7 @@
 						<article class="block mb-3 shadow">
 							<div class="row">
 								<div class="col-sm-3">
-									<img class="img-fluid rounded-circle"  style="width:150px"alt="" src="TylerDo.jpg">
+									<img class="img-fluid rounded-circle"  style="width:150px"alt="" src="assets/TylerDo.jpg">
 								</div>
 								<div class="col-sm-9">
 									<h3> My Block Post Title</h3>
