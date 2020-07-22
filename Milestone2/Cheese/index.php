@@ -3,7 +3,7 @@
     include("./inc/functions.php");
     if(isset($_SESSION['user_id'])) 
          {
-             include("./inc/headers/logged-in-header.php");
+             include("./inc/headers/homepage-logged-in-header.php");
          } //IF LOGGED IN 
       else
          {
@@ -34,47 +34,11 @@
 <!-- Main Block Section -->
 <section class="block-posts mt-4">
 	<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<?php getAllPosts();?>
-				<article class="block mb-3 shadow">
-					<div class="row">
-						<div class="col-sm-3">
-							<img class="img-fluid rounded-circle"  style="width:150px"alt="" src="TylerDo.jpg">
-						</div>
-						<div class="col-sm-9">
-							<h3> My Block Post Title</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-							ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-							in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
-							sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-							mollit anim id est laborum.
-							</p>
-							<div class="user-post-share">
-							<button class="button-style btn btn-info btn-sm">
-								<i class="fa fa-comment-o" aria-hidden="true"></i>
-							</button>
-							<button class="button-style btn btn-info btn-sm">
-								<i class="fa fa-share-square-o" aria-hidden="true">
-								</i>
-							</button>
-							<button class="button-style btn btn-info btn-sm">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i></button>
-							</div>
-							<div class="user-likes">
-							<!--LIKE BUTTON-->
-							<button data-id="2" 
-							onclick="like(2);"  class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up like-btn" aria-hidden="true"></i></button>
-							<!--DISLIKE BUTTON-->
-							<button onclick="dislike(2);" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down dislike-btn" aria-hidden="true"></i></button>
-							</div>
-						</div>
-					</div>
-				</article>
+		<div class="row">
+			<div class="col-md-12">
+				<?php getAllPosts();?>
+			</div>
 		</div>
-	</div>
 	</div>
 </section>
 		<script src="update.js"></script>

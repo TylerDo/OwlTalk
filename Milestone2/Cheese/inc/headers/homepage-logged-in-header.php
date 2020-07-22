@@ -36,7 +36,7 @@
 				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 				</a> '; ?> 
 			</nav>
-			<?php echo '<a class="navbar-brand" href="index.php">Cheese</a> '; ?>
+			<?php echo '<a class="navbar-brand" href="#">Cheese</a> '; ?>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -55,3 +55,38 @@
 			</div>
 		</nav>
 		
+	<!-- Main Block Section MODAL-->
+		<div class="container text-center">
+			<!-- Create a new block button with modal -->
+				<button type="button" class="button-style btn btn-info btn-sm" id="createBlockButton" data-toggle="modal" data-target="#createBlock">Create Post</button>
+			<!-- Modal -->
+			<div class="modal fade" id="createBlock">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title">Post a Block</h1>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+						</div>
+						<div class="modal-body">
+							<form action="./inc/createPost-handler.php" method="POST">
+								<div class="form-group">
+									<label for="title">Title</label>
+									<input name="title" type="text" class="form-control" id="blockTitle">
+								</div>
+								<div class="form-group">
+									<label for="textareaBlock">Write Post</label>
+									<textarea name="body" class="form-control" id="blockTextArea" rows= "5"></textarea>
+								</div>
+								<div class="modal-footer">
+                                    <button type="button" class="button-style btn btn-info btn-sm" data-dismiss="modal">Close</button>
+                                    <button type="submit" name="create-post" type="button" class="button-style btn btn-info btn-sm">Create Post</button>
+						        </div>
+							</form>
+						
+						
+					</div>
+				</div>
+			</div>
+            </div>
