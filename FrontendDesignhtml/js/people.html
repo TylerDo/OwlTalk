@@ -1,3 +1,4 @@
+<!-- Group 4 Project Cheese index.html Tyler Do-->
 <html>
 
 	<head>
@@ -17,6 +18,7 @@
         crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+		<script src="scripts.js"></script>
 	</head>
 
 	<body>
@@ -39,8 +41,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="index.html">Home</a>
-					<a class="nav-item nav-link" href="people.html">People</a>
+					<a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="#">People</a>
 					<a class="nav-item nav-link" href="#">School</a>
 					<a class="nav-item nav-link" href="#">Hobbies</a>
 				</div>
@@ -54,50 +56,56 @@
 			</div>
 		</nav>
 		
-		
-		<!--Main section -->
-		<!-- Icon/Logo Section -->
-	<section>
-		<div class="container text-center" style="padding-top: 50px;">
-		<h2 style="padding-bottom: 25px;">Cheese</h2>
-			<figure class="figure">
-				<i class="fa fa-grav" aria-hidden="true" style="font-size: 10em;"></i>
-			</figure>
-			<h3 style="padding-top: 25px;">Update username and password</h3>
-		</div>
-	</section>
-	
-		<!-- User Form -->
-	<section>
-		<div class="container" style="padding-top: 50px;">
-			<div class="input-group input-group-sm mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
-				</div>
-				<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-			</div>
-			<div class="input-group input-group-sm mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
-				</div>
-				<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-			</div>
-		</div>
-	</section>
-		
-		<!-- Buttons -->
-		<div class="container text-center">
+		<!-- Main Block Section -->
+		<div class="container">
 			<div class="row">
-				<div class="col-md">
-					<button class="button-style btn btn-info btn-lg mr-5" data-toggle="tooltip" data-placement="bottom" title="Update!">
-					Update
-					</button>
-					<button class="button-style btn btn-info btn-lg ml-5" data-toggle="tooltip" data-placement="bottom" title="Exit!">
-					Exit
-					</button>
+				<div class="col">
+					<section class="text-center">
+					<div class="card text-center mt-3 shadow" style="max-width: 800px;">
+						<div class="row no-gutters">
+							<div class="col-md-4">
+							<img src="assets/1.jpg" class="card-img" alt="...">
+							</div>
+								<div class="col-md-8">
+									<div class="card-body">
+									<h5 class="card-title">Firstname Lastname</h5>
+									<p class="card-text">Description:</p>
+									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+									</div>
+							</div>
+						</div>
+					</div>
+					<div class="card text-center mt-3 shadow" style="max-width: 800px;">
+						<div class="row no-gutters">
+							<div class="col-md-4">
+							<img src="assets/2.jpg" class="card-img" alt="...">
+							</div>
+								<div class="col-md-8">
+									<div class="card-body">
+									<h5 class="card-title">Firstname Lastname</h5>
+									<p class="card-text">Description:</p>
+									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+									</div>
+							</div>
+						</div>
+					</div>
+					<div class="card text-center mt-3 shadow" style="max-width: 800px;">
+						<div class="row no-gutters">
+							<div class="col-md-4">
+							<img src="assets/3.jpg" class="card-img" alt="...">
+							</div>
+								<div class="col-md-8">
+									<div class="card-body">
+									<h5 class="card-title">Firstname Lastname</h5>
+									<p class="card-text">Description:</p>
+									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+									</div>
+							</div>
+						</div>
+					</div>
+					</section>
 				</div>
 			</div>
 		</div>
-		
 	</body>
 </html>
