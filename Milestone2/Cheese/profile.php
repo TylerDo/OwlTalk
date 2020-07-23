@@ -1,52 +1,104 @@
 <!-- Group 4 Project Cheese profile.html Tyler Do-->
 <?php
-    session_start();
+	session_start();
+	if(!isset($_GET['id'])){
+		header('location: index.php');
+		exit();
+	}
+	else{
+		$user_id2 = $_GET['id'];
+	}
     if(isset($_SESSION['user_id'])) //IF LOGGED IN 
     {
 		include('./inc/headers/logged-in-header.php');
-		require "./inc/connection.php";
-		//GET USERNAME
-		$user_id = $_SESSION['user_id'];
-		$sql = "SELECT username FROM users WHERE user_id = '$user_id'";
-		$sql_result = mysqli_query($con, $sql);
-		if($row = mysqli_fetch_assoc($sql_result)){
-			$username = $row['username'];
-		}
     } 
     else //IF LOGGED OUT
     {
         header('location: index.php');
-    }   
-    
+	}   
+
+	//GET USERNAME
+	require "./inc/connection.php";
+	$sql = "SELECT username FROM users WHERE user_id = '$user_id2'";
+	$sql_result = mysqli_query($con, $sql);
+	if($row = mysqli_fetch_assoc($sql_result)){
+		$username = $row['username'];
+	}
+	else{
+		echo 'profile does not exist';
+		exit();
+	}
     include('./inc/functions.php');
 ?>
+
+<?php if(isset($_SESSION['success'])) : ?>
+               <div class="alert alert-success text-center">
+                   <?php echo $_SESSION['success']; 
+						unset($_SESSION['success'])
+						//SUCCESS MESSAGES?> 
+               </div>
+
+    <?php endif ?>
+       
+        <?php if(isset($_SESSION['error'])) : ?>
+               <div class="alert alert-danger text-center">
+                   <?php echo $_SESSION['error']; 
+						unset($_SESSION['error'])
+						//ERROR MESSAGES?> 
+               </div>
+
+    <?php endif ?>
 		
 	<!-- Body Section -->
-		<div class="container">
-			<div class="row">
-			<!-- Left side for user profile -->
-				<div class="col-md-4"">
-					<div class="card" style="width: 18rem;">
-						<img src="default-picture.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title"><?php echo $username;?></h5>
+	<div class="container">
+		<!-- Modal -->
+			<div class="modal fade" id="updateProfile">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title">Edit Profile</h1>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
 						</div>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">Location</li>
-							<li class="list-group-item">Major</li>
-							<li class="list-group-item">Hobbies</li>
-						</ul>
-						<div class="card-body">
-							<a href="post.html" class="card-link">Bookmarked Posts</a>
-						</div>
+						<div class="modal-body">
+							<form action="./inc/update-profile-handler.php" method="POST">
+								<div class="form-group">
+									<label for="hobbies">Name</label>
+									<input name="name" type="text" class="form-control" id="profileHobbies">
+								</div>
+								<div class="form-group">
+									<label for="location">Location</label>
+									<input name="location" type="text" class="form-control" id="profileLocation">
+								</div>
+								<div class="form-group">
+									<label for="major">Major</label>
+									<input name="major" type="text" class="form-control" id="profileMajor">
+								</div>
+								<div class="form-group">
+									<label for="hobbies">Hobbies</label>
+									<input name="hobbies" type="text" class="form-control" id="profileHobbies">
+								</div>
+							
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="button-style btn btn-info btn-sm" data-dismiss="modal">Close</button>
+
+								<button name="update-profile" type="submit" class="button-style btn btn-info btn-sm" >Commit Changes</button>
+							</div>
+						</form>
 					</div>
 				</div>
+			</div>
+
+			<?php getProfile($user_id2);?>
 			<!-- Center for block post -->
 				<div class="col-md-8">
 					<h3 class="head text-center mt-2"><?php echo $username;?> Posts</h3>
 					<div class="dropdown-divider"></div>
 					<article class="block mb-3 shadow">
-							<?php getPosts();?>
+							<?php 
+							getPosts($user_id2);?>
 					</article>
 				</div>
 			</div>	

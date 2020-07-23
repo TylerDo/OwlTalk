@@ -28,9 +28,9 @@
                
                 echo '<article class="block text-left mb-3 shadow">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-3 text-center">
                                     <img class="img-fluid rounded-circle" style="width:150px" alt="" src="default-picture.jpg">
-                                    <h5 class="text-center">'. $username . '</h5>
+                                    <a href="profile.php?id='.$user_id.'" class="text-center text-dark h5">'. $username . '</a>
                                 </div>
                                
                                 <div class="col-sm-9 form'. $post_id .'">
@@ -70,7 +70,7 @@
                                     <button onclick="editPost('. $post_id .');" class="button-style btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                     </div>' : '') 
                                     .
-                                    '<form action="" method="POST">
+                                    '<form action="" method="POST" class="ml-auto">
                                     <button name="increment" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
                                     '.$likes.'
                                     <button name="decrement" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
@@ -169,10 +169,8 @@
         }
     }
 
-    function getPosts(){
-        if(isset($_SESSION['user_id'])){
+    function getPosts($user_id){
             require "connection.php";
-            $user_id = $_SESSION['user_id'];
 
             $sql = "SELECT * FROM posts WHERE user_id = '$user_id'";
             $post_result = mysqli_query($con, $sql);
@@ -198,10 +196,7 @@
             }else{
                 echo '<p>No Posts made from this account</p>';
             }
-        }else{
-            echo '';
         }
-    }
 
     function get_time_ago( $time ){
     date_default_timezone_set('America/New_York');
@@ -315,7 +310,7 @@ function decrement($post_id){
             mysqli_stmt_execute($stmt);
         }
         mysqli_stmt_close($stmt);
-        mysqli_close($conn);
+        mysqli_close($con);
     }
 
     //if no entry available then INSERT one with a 1 for the like
@@ -327,8 +322,63 @@ function getLikes($post_id){
     require "connection.php";
     $sql = "SELECT SUM(likes) FROM likes WHERE post_id = '$post_id'";
     $post_result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($post_result);
-    return $row['SUM(likes)'];
+    if($row = mysqli_fetch_assoc($post_result)){
+        return $row['SUM(likes)'];
+    }else{
+        return 0;
+    }
+    
+}
 
+function getProfile($user_id){
+    require "connection.php";
+    $user_id = (int)$user_id;
+    $sql = "SELECT * FROM profiles WHERE user_id= '$user_id'";
+    $post_result = mysqli_query($con, $sql);
+    if($row = mysqli_fetch_assoc($post_result)){
+        echo '<div class="row flex-nowrap">
+        <!-- Left side for user profile -->
+            <div class="col-md-4">
+                <div id="userProfile" class="card" style="width: 18rem;">
+                    <img src="default-picture.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        ' . ($row['name'] ? $row['name'] : 'Firstname Lastname') .  '</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li id="location" class="list-group-item">' .    ($row['location'] ? 'Location: ' . $row['location'] : 'Location') .  '</li>
+                        <li id="major" class="list-group-item">' .    ($row['major'] ? 'Major: '. $row['major'] : 'Major') .  '</li>
+                        <li id="hobbies" class="list-group-item">' .    ($row['hobbies'] ? 'Hobbies: '. $row['hobbies'] : 'Hobbies') .  '</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="post.html" class="card-link">Bookmarked Posts</a>
+                    </div>
+                    <!-- Create a new block button with modal -->
+                    <button type="button" class="button-style btn btn-info btn-sm" id="updateProfileButton" data-toggle="modal" data-target="#updateProfile">Edit Profile</button>
+                </div>
+        </div>';
+    }
+    else{
+        echo '<div class="row flex-nowrap">
+    <!-- Left side for user profile -->
+        <div class="col-md-4">
+            <div id="userProfile" class="card" style="width: 18rem;">
+                <img src="default-picture.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Firstname LastName</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li id="location" class="list-group-item">Location</li>
+                    <li id="major" class="list-group-item">Major</li>
+                    <li id="hobbies" class="list-group-item">Hobbies</li>
+                </ul>
+                <div class="card-body">
+                    <a href="post.html" class="card-link">Bookmarked Posts</a>
+                </div>
+                <!-- Create a new block button with modal -->
+                <button type="button" class="button-style btn btn-info btn-sm" id="updateProfileButton" data-toggle="modal" data-target="#updateProfile">Edit Profile</button>
+            </div>
+    </div>';
+    }
 }
 ?>

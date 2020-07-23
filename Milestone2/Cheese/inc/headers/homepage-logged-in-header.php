@@ -1,4 +1,8 @@
 <!-- Group 4 Project Cheese index.html Tyler Do-->
+<?php if(isset($_SESSION['user_id'])){
+		$user_id = $_SESSION['user_id'];
+}
+	?>
 <html>
 
 	<head>
@@ -32,7 +36,7 @@
 			<i class="fa fa-sign-in" style="padding-left: 5px;" aria-hidden="true"></i>
 			<!-- User Icon -->
 			<nav class="navbar navbar-light">
-				<?php echo '<a class="navbar-brand" href="profile.php">
+				<?php echo '<a class="navbar-brand" href="profile.php?id='.$user_id.'">
 				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 				</a> '; ?> 
 			</nav>
