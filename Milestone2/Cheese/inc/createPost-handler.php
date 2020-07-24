@@ -23,8 +23,6 @@ if(isset($_POST['create-post'])){
     
     $user_id = $_SESSION['user_id'];
     
-    
-    
     //INSERT INTO POSTS
     
     $sql = "INSERT INTO posts (user_id, title, body, likes) VALUES (?, ?, ?, ?)";

@@ -1,4 +1,5 @@
 function editPost(id){
+    console.log("hello");
     let post = document.querySelector(`.form${id} .post-container`)
     let form = document.querySelector(`.form${id} form`);
     let title = document.querySelector(`.form${id} h3`);

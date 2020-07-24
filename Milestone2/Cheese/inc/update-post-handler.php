@@ -5,8 +5,8 @@ session_start();
 require "connection.php";
 
 if(isset($_POST['update'])){
-    $title = mysqli_real_escape_string($con, $_POST['title']);
-    $body = mysqli_real_escape_string($con, $_POST['body']);
+    $title = $_POST['title'];
+    $body = $_POST['body'];
     $likes = 0; //NEEDS TO BE CHANGED WHEN LIKES FUNCTIONALITY IS ADDED
     $post_id = mysqli_real_escape_string($con, $_POST['post_id']);
     

@@ -28,7 +28,44 @@
 		echo 'profile does not exist';
 		exit();
 	}
-    include('./inc/functions.php');
+	include('./inc/functions.php');
+	
+	if(isset($_POST['increment'])){
+        if(isset($_SESSION['user_id'])){
+            if(isset($_POST['post_id'])){
+                
+                $post_id = (int)$_POST['post_id'];
+                if($post_id != 0){
+                    increment($post_id, "p");
+                }
+            }
+            elseif(isset($_POST['comment_id'])){
+                $comment_id = (int)$_POST['comment_id'];
+                if($commentj_id != 0){
+                    increment($comment_id, "c");
+                }
+            }
+            
+        }
+    }
+
+    if(isset($_POST['decrement'])){
+        if(isset($_SESSION['user_id'])){
+            if(isset($_POST['post_id'])){
+                $post_id = (int)$_POST['post_id'];
+                if($post_id != 0){
+                    decrement($post_id, "p");
+                }
+            }
+            elseif(isset($_POST['comment_id'])){
+                $comment_id = (int)$_POST['comment_id'];
+                if($commentj_id != 0){
+                    decrement($comment_id, "c");
+                }
+            }
+            
+        }
+    }
 ?>
 
 <?php if(isset($_SESSION['success'])) : ?>
@@ -98,7 +135,10 @@
 					<div class="dropdown-divider"></div>
 					<article class="block mb-3 shadow">
 							<?php 
-							getPosts($user_id2);?>
+							getPosts($user_id2);
+							
+
+							?>
 					</article>
 				</div>
 			</div>	
