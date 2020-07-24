@@ -62,15 +62,14 @@
                                     <h3 class="'. $post_id .'">'. $title .'</h3>
                                     <p>'. $body .
                                     '</p>
-                                    <div class="user-post-share">
-                                    <a href="./post.php?id='.$post_id.'" class="button-style btn btn-info btn-sm"><i class="fa fa-comment-o" aria-hidden="true"></i></a>'
+                                    <div class="d-flex justify-content-end user-post-share">
+                                    <div><a href="./post.php?id='.$post_id.'" class="button-style btn btn-info btn-sm"><i class="fa fa-comment-o" aria-hidden="true"></i></a></div>'
                                     . 
-                                    ($current_user_id === $user_id ? '<a href="/~cen4010s2020_g04/Milestone2/Cheese/inc/delete-handler.php?delete='.$post_id.'" class="button-style btn btn-info btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-
-                                    <button onclick="editPost('. $post_id .');" class="button-style btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                    </div>' : '') 
+                                    ($current_user_id === $user_id ? '<div><a href="/~cen4010s2020_g04/Milestone2/Cheese/inc/delete-handler.php?delete='.$post_id.'" class="button-style btn btn-info btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                    
+                                    <button onclick="editPost('. $post_id .');" class="button-style btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></div>' : '') 
                                     .
-                                    '<form action="" method="POST" class="ml-auto">
+                                    '<form action="" method="POST" class="">
                                     <button name="increment" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
                                     '.$likes.'
                                     <button name="decrement" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
