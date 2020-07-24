@@ -101,6 +101,10 @@
 						<div class="modal-body">
 							<form action="./inc/update-profile-handler.php" method="POST">
 								<div class="form-group">
+									<label for="myimage">Profile Pic</label>
+									<input name="image" type="file" class="form-control" accept="image/*" id="profileImage">
+								</div>
+								<div class="form-group">
 									<label for="hobbies">Name</label>
 									<input name="name" type="text" class="form-control" id="profileHobbies">
 								</div>

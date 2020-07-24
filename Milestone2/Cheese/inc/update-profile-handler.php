@@ -11,6 +11,11 @@ if(isset($_POST['update-profile'])){
         exit();
     }
     
+	if($_POST['image']){
+        $image  = $_POST['image'];
+    }else{
+        $image = "";
+    }
     if($_POST['name']){
         $name  = $_POST['name'];
     }else{
@@ -35,7 +40,7 @@ if(isset($_POST['update-profile'])){
     $user_id  = $_SESSION['user_id'];
 
 
-    if(empty($name) && empty($location) && empty($major) && empty($hobbies)){
+    if(empty($image) && empty($name) && empty($location) && empty($major) && empty($hobbies)){
         $_SESSION['error'] = "Please fill out at least one field";
         header('location: ../profile.php?id='.$user_id);
         exit();
@@ -53,7 +58,7 @@ if(isset($_POST['update-profile'])){
         }
 
         //UPDATE PROFILE
-        $sql = "UPDATE profiles SET name=?, location=?, major=?, hobbies=? WHERE user_id=?";
+        $sql = "UPDATE profiles SET image=? name=?, location=?, major=?, hobbies=? WHERE user_id=?";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             $_SESSION['error'] = "SQL error";
@@ -61,7 +66,7 @@ if(isset($_POST['update-profile'])){
             exit();
         }
         else{ //UPDATE POST IN DATABASE
-            mysqli_stmt_bind_param($stmt, "ssssi", $name, $location, $major, $hobbies, $user_id);
+            mysqli_stmt_bind_param($stmt, "ssssi",$image, $name, $location, $major, $hobbies, $user_id);
             mysqli_stmt_execute($stmt);
     
             $_SESSION['success'] = "Profile updated!";
@@ -74,7 +79,7 @@ if(isset($_POST['update-profile'])){
     else{
         //ELSE CREATE THE PROFILE
 
-        $sql = "INSERT INTO profiles (user_id, name, location, major, hobbies) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO profiles (user_id, image, name, location, major, hobbies) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             $_SESSION['error'] = "SQL error";
@@ -82,7 +87,7 @@ if(isset($_POST['update-profile'])){
             exit();
         }
         else{ //UPDATE POST IN DATABASE
-            mysqli_stmt_bind_param($stmt, "issss", $user_id, $name, $location, $major, $hobbies);
+            mysqli_stmt_bind_param($stmt, "issss", $user_id, $image, $name, $location, $major, $hobbies);
             mysqli_stmt_execute($stmt);
     
             $_SESSION['success'] = "Profile updated!";
