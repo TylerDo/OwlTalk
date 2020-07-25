@@ -29,7 +29,7 @@
     function getPost($post_id){
         require "connection.php";
         
-        if(!is_int($post_id)){
+        if($post_id == 0){
             $_SESSION['error'] = 'Page not found';
             header('location: index.php');
             exit();
@@ -355,7 +355,7 @@ function getLikes($id, $switch){
 function getProfile($user_id){
     require "connection.php";
     $user_id = (int)$user_id;
-    $sql = "SELECT * FROM profiles WHERE user_id= '$user_id'";
+    $sql = "SELECT * FROM profiles WHERE user_id = '$user_id'";
     $profilePicture=getProfilePic($user_id);
     $post_result = mysqli_query($con, $sql);
     if($row = mysqli_fetch_assoc($post_result)){
@@ -372,6 +372,7 @@ function getProfile($user_id){
                         <li id="location" class="list-group-item">' .    ($row['location'] ? 'Location: ' . $row['location'] : 'Location') .  '</li>
                         <li id="major" class="list-group-item">' .    ($row['major'] ? 'Major: '. $row['major'] : 'Major') .  '</li>
                         <li id="hobbies" class="list-group-item">' .    ($row['hobbies'] ? 'Hobbies: '. $row['hobbies'] : 'Hobbies') .  '</li>
+                        <li id="description" class="list-group-item">' .    ($row['description'] ? 'Description: '. $row['description'] : 'Description') .  '</li>
                     </ul>
                     <div class="card-body">
                         <a href="post.html" class="card-link">Bookmarked Posts</a>
@@ -402,6 +403,40 @@ function getProfile($user_id){
                 <button type="button" class="button-style btn btn-info btn-sm" id="updateProfileButton" data-toggle="modal" data-target="#updateProfile">Edit Profile</button>
             </div>
     </div>';
+    }
+}
+
+function displaySearch($search){
+    require "connection.php";
+
+    $sql = "SELECT p.major, p.location, p.hobbies, u.username, p.name, p.description, p.user_id FROM profiles AS p, users AS u WHERE u.user_id = p.user_id AND (location LIKE '%$search%' OR hobbies LIKE '%$search%' OR major LIKE '%$search%' OR name LIKE '%$search%')";
+
+    $post_result = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_assoc($post_result)){
+        $major = $row['major'];
+        $location = $row['location'];
+        $hobbies = $row['hobbies'];
+        $username = $row['username'];
+        $name = $row['name'];
+        $description = $row['description'];
+        $profilePicture=getProfilePic($row['user_id']);
+        echo '
+        <div class="card text-center mt-3 shadow" style="min-width: 500px; max-width: 800px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                <img src="'.$profilePicture.'" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">'.$name.'</h5>
+                    <p class="card-text"><b>Location:</b> '.$location.'.</p>
+                    <p class="card-text"><b>Major:</b> '.$major.'.</p>
+                    <p class="card-text"><b>Hobbies:</b> '.$hobbies.'.</p>
+                    <p class="card-text"><b>Description:</b> '.$description.'</p>
+                    </div>
+                </div>
+            </div>
+        </div>';
     }
 }
 ?>

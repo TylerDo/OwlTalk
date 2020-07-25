@@ -39,7 +39,7 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<?php echo '<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> '; ?>
-					<?php echo '<a class="nav-item nav-link" href="#">People</a> '; ?>
+					<?php echo '<a class="nav-item nav-link" href="search.php">People</a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="#">School</a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="#">Hobbies</a> '; ?>
 				</div>
@@ -50,3 +50,5 @@
 			</button>
 			</div>
 		</nav>
+
+		<div class="container text-center">

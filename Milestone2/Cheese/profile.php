@@ -117,6 +117,10 @@
 									<label for="hobbies">Hobbies</label>
 									<input name="hobbies" type="text" class="form-control" id="profileHobbies">
 								</div>
+								<div class="form-group">
+									<label for="hobbies">Description</label>
+									<input name="description" type="text" class="form-control" id="profileHobbies">
+								</div>
 								 <div class="form-group">
 									<label for="image">Profile Picture</label>
 									<div>
