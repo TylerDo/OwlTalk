@@ -11,8 +11,14 @@ if(isset($_POST['update-profile'])){
         exit();
     }
     
-	if($_POST['image']){
-        $image  = $_POST['image'];
+	if(file_exists($_FILES['image']['tmp_name']) && is_uploaded_file($_FILES['image']['tmp_name'])){
+        $target='images/'.$_SESSION['user_id'];
+        if(!move_uploaded_file($_FILES['image']['tmp_name'], $target)){ //if failure to add img to server
+             $_SESSION['error'] = "Could not upload image to server".$_FILES['image']['name'];
+            header('location: ../profile.php?id='.$_SESSION['user_id']);
+            exit();
+        }
+        $image=$target; //img =path to file in server
     }else{
         $image = "";
     }
@@ -56,9 +62,24 @@ if(isset($_POST['update-profile'])){
             header('location: ../index.php');
             exit();
         }
-
+        //if any of the updated fields are empty, fill them with old data so we don't loose it
+        if(empty($image)){
+            $image=$row['image'];
+        }
+        if(empty($name)){
+            $name=$row['name'];
+        } 
+        if(empty($major)){
+            $major=$row['major'];
+        }
+        if(empty($hobbies)){
+            $hobbies=$row['hobbies'];
+        }
+        if(empty($location)){
+            $location=$row['location'];
+        }
         //UPDATE PROFILE
-        $sql = "UPDATE profiles SET image=? name=?, location=?, major=?, hobbies=? WHERE user_id=?";
+        $sql = "UPDATE profiles SET  name=?, location=?, major=?, hobbies=?, image=? WHERE user_id=?";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             $_SESSION['error'] = "SQL error";
@@ -66,7 +87,7 @@ if(isset($_POST['update-profile'])){
             exit();
         }
         else{ //UPDATE POST IN DATABASE
-            mysqli_stmt_bind_param($stmt, "ssssi",$image, $name, $location, $major, $hobbies, $user_id);
+            mysqli_stmt_bind_param($stmt, "sssssi", $name, $location, $major, $hobbies,$image, $user_id);
             mysqli_stmt_execute($stmt);
     
             $_SESSION['success'] = "Profile updated!";
