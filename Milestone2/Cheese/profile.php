@@ -87,7 +87,7 @@
     <?php endif ?>
 		
 	<!-- Body Section -->
-	<div class="container">
+		<div class="container ">
 		<!-- Modal -->
 			<div class="modal fade" id="updateProfile">
 				<div class="modal-dialog" role="document">
@@ -139,8 +139,8 @@
 							
 
 							?>
-					</article>
 				</div>
 			</div>	
+		</div>
 	</body>
 </html>

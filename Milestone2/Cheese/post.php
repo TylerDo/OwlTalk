@@ -9,7 +9,6 @@
     {
         include("./inc/headers/logged-out-header.php");
     } //IF LOGGED IN      
-
     if(isset($_POST['increment'])){
         if(isset($_SESSION['user_id'])){
             if(isset($_POST['post_id'])){

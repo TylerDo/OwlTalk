@@ -346,10 +346,10 @@ function getProfile($user_id){
     $sql = "SELECT * FROM profiles WHERE user_id= '$user_id'";
     $post_result = mysqli_query($con, $sql);
     if($row = mysqli_fetch_assoc($post_result)){
-        echo '<div class="row flex-nowrap">
+        echo '<div class="row">
         <!-- Left side for user profile -->
             <div class="col-md-4">
-                <div id="userProfile" class="card" style="width: 18rem;">
+                <div id="userProfile" class="card" style="max-width: 100%; min-width: 208px;">
                     <img src="default-picture.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">
