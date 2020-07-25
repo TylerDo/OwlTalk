@@ -14,7 +14,7 @@
     } 
     else //IF LOGGED OUT
     {
-        header('location: index.php');
+        include("./inc/headers/logged-out-header.php");
 	}   
 
 	//GET USERNAME
@@ -99,7 +99,8 @@
 								</button>
 						</div>
 						<div class="modal-body">
-							<form action="./inc/update-profile-handler.php" method="POST">
+							<form action="./inc/update-profile-handler.php" method="POST" enctype="multipart/form-data" >
+								
 								<div class="form-group">
 									<label for="hobbies">Name</label>
 									<input name="name" type="text" class="form-control" id="profileHobbies">
@@ -115,6 +116,12 @@
 								<div class="form-group">
 									<label for="hobbies">Hobbies</label>
 									<input name="hobbies" type="text" class="form-control" id="profileHobbies">
+								</div>
+								 <div class="form-group">
+									<label for="image">Profile Picture</label>
+									<div>
+  	  									<input type="file" class="form-control"name="image"accept="image/*">
+  									</div>
 								</div>
 							
 							</div>

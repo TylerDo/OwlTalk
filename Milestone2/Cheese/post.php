@@ -81,7 +81,7 @@
                         <!--COMMENT FORM-SHOW IF LOGGED IN-->
                         <?php if(isset($_SESSION['user_id'])): ?>
                         <form method="POST" action="./inc/create-comment-handler.php" class="d-flex flex-row add-comment-section mt-4 mb-4">
-                            <img class="img-fluid img-responsive rounded-circle mr-2" src="default-picture.jpg" width="38">
+                            <img class="img-fluid img-responsive rounded-circle mr-2" src=<?php echo getProfilePic($_SESSION['user_id'])?> width="38">
                             <input name="body" type="text" class="form-control mr-3" placeholder="Add comment">
                             <input style="display: none;" name="post_id" type="text" value="<?php echo $post_id; ?>">
                             <button name="create-comment" class="button-style btn btn-info btn-sm" type="submit">Comment</button>

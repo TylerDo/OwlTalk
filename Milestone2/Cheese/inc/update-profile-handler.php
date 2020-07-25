@@ -99,7 +99,6 @@ if(isset($_POST['update-profile'])){
         if(empty($location)){
             $location=$row['location'];
         }
-        var_dump($image);
         //UPDATE PROFILE
         $sql = "UPDATE profiles SET  name=?, location=?, major=?, hobbies=?, image=? WHERE user_id=?";
         $stmt = mysqli_stmt_init($con);

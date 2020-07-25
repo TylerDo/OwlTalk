@@ -14,6 +14,17 @@
             }
         }
     }
+    function getProfilePic($id){
+        require "connection.php";
+        $user_id = (int)$id;
+        $sql = "SELECT * FROM profiles WHERE user_id= '$user_id'";
+        $post_result = mysqli_query($con, $sql);
+        if($row = mysqli_fetch_assoc($post_result)){
+            return $row['image']?$row['image']:'default-picture.jpg';
+        }
+        return 'default-picture.jpg';
+    }   
+
         
     function getPost($post_id){
         require "connection.php";
@@ -38,6 +49,7 @@
             $username = array_shift($username);
             date_default_timezone_set('America/New_York');
             $date = get_time_ago(strtotime($row['date']));
+            $profilePicture=getProfilePic($user_id);
 
             if(isset($_SESSION['user_id'])){
                 $current_user_id = $_SESSION['user_id'];
@@ -49,7 +61,7 @@
             <div class="row">
                 <div class="col-sm-3 text-center">
                     <div>
-                    <img class="img-fluid rounded-circle" style="width:150px" alt="" src="default-picture.jpg">
+                    <img class="img-fluid rounded-circle" style="width:150px" alt="" src='.$profilePicture.'>
                     </div>
                     <div>
                     <a href="profile.php?id='.$user_id.'" class="text-center text-dark h5">'. $username . '</a>
@@ -344,13 +356,14 @@ function getProfile($user_id){
     require "connection.php";
     $user_id = (int)$user_id;
     $sql = "SELECT * FROM profiles WHERE user_id= '$user_id'";
+    $profilePicture=getProfilePic($user_id);
     $post_result = mysqli_query($con, $sql);
     if($row = mysqli_fetch_assoc($post_result)){
         echo '<div class="row">
         <!-- Left side for user profile -->
             <div class="col-md-4">
-                <div id="userProfile" class="card" style="max-width: 100%; min-width: 208px;">
-                    <img src="default-picture.jpg" class="card-img-top" alt="...">
+                <div id="userProfile" class="card" style="width: 18rem;">
+                    <img src='.$profilePicture.' class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">
                         ' . ($row['name'] ? $row['name'] : 'Firstname Lastname') .  '</h5>
