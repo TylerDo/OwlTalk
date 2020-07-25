@@ -108,7 +108,7 @@ if(isset($_POST['update-profile'])){
             exit();
         }
         else{ //UPDATE POST IN DATABASE
-            mysqli_stmt_bind_param($stmt, "issss", $user_id, $image, $name, $location, $major, $hobbies);
+            mysqli_stmt_bind_param($stmt, "isssss", $user_id, $image, $name, $location, $major, $hobbies);
             mysqli_stmt_execute($stmt);
     
             $_SESSION['success'] = "Profile updated!";

@@ -14,7 +14,7 @@
     } 
     else //IF LOGGED OUT
     {
-        header('location: index.php');
+        include("./inc/headers/logged-out-header.php");
 	}   
 
 	//GET USERNAME
