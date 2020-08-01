@@ -28,12 +28,8 @@
 		<!-- Nav Bar -->
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
-			<!-- User Icon -->
-			<nav class="navbar navbar-light">
-				<?php echo '<a class="navbar-brand" href="profile.php">
-				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-				</a>' ?>
-			</nav>
+			<!-- User Icon //removed bc not logged in -->
+			
 			<?php echo '<a class="navbar-brand" href="index.php">Cheese</a>' ?>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -41,7 +37,7 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<?php echo '<a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>' ?>
-					<?php echo '<a class="nav-item nav-link" href="#">People</a>' ?>
+					<?php echo '<a class="nav-item nav-link" href="search.php">People</a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="#">School</a>' ?>
 					<?php echo '<a class="nav-item nav-link" href="#">Hobbies</a>' ?>
 				</div>
