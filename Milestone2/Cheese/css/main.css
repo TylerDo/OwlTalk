@@ -61,7 +61,7 @@ nav.navbar-brand{
 /* Styles for wrapping the search box */
 
 .main {
-    width: 50%;
+    width: 80%;
     margin: 50px auto;
 }
 
@@ -81,5 +81,11 @@ nav.navbar-brand{
     text-align: center;
     pointer-events: none;
     color: #aaa;
+}
+
+@media (max-width: 700px){
+	.main{
+		width: 100%;
+	}
 }
 

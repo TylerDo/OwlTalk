@@ -2,6 +2,14 @@
 <html>
 
 	<head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174156488-1%22%3E"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+		  
+			gtag('config', 'UA-174156488-1');
+		  </script>
 		<title>Profile Page</title>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -11,6 +19,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Main color Scheme -->
 		<link rel="stylesheet" href="css/main.css">
+		
 	</head>
 
 

@@ -144,12 +144,23 @@
 				<div class="col-md-8">
 					<h3 class="head text-center mt-2"><?php echo $username;?> Posts</h3>
 					<div class="dropdown-divider"></div>
-					<article class="block mb-3 shadow">
+
 							<?php 
 							getPosts($user_id2);
 							
 
 							?>
+					<h3 class="head text-center mt-2"><?php echo $username;?> Comments</h3>
+					<article class="block mb-3 shadow">
+					<div class="dropdown-divider">
+					</div>
+							<?php 
+							getUserComments($user_id2);
+							
+							?>
+					</article>
+				</div>
+				
 				</div>
 			</div>	
 		</div>

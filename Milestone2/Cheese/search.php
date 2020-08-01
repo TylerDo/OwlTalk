@@ -12,26 +12,22 @@
 ?>
 		<!-- Main Block Section -->
 		<div class="main">
-		<!-- Actual search box -->
-		<form method="POST" action="" class="form-group has-search">
-			<span class="fa fa-search form-control-feedback"></span>
-			<input name="search" type="text" class="form-control" placeholder="Search">
-		</form>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<section class="text-center">
-					<?php
-						if(isset($_POST['search'])){
-							displaySearch($_POST['search']);
-						 }else{
-							displaySearch("");
-						 }
-					?>
-					</section>
-				</div>
+			<!-- Actual search box -->
+			<form method="POST" action="" class="form-group has-search">
+				<span class="fa fa-search form-control-feedback"></span>
+				<input style="max-width: 800px;"name="search" type="text" class="form-control" placeholder="Search">
+			</form>
+			<div >
+						<section>
+						<?php
+							if(isset($_POST['search'])){
+								displaySearch($_POST['search']);
+							}else{
+								displaySearch("");
+							}
+						?>
+						</section>
 			</div>
-		</div>
 		</div>
 	</body>
 </html>

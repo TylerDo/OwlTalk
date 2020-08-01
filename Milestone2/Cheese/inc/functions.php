@@ -124,6 +124,58 @@
         
     }
 
+    function getUserComments($user_id){
+        require "connection.php";
+
+        $sql = "SELECT u.username, c.date, c.body, c.likes, c.comment_id, c.user_id
+        FROM users AS u, posts AS p, comment AS c 
+        WHERE c.user_id = '$user_id' AND p.post_id = c.post_id AND u.user_id = c.user_id;";
+
+        $post_result = mysqli_query($con, $sql);
+        if(mysqli_num_rows($post_result) > 0){
+            while($row = mysqli_fetch_assoc($post_result)){
+                $comment_id = $row['comment_id'];
+            $user_id = $row['user_id'];
+            $date = get_time_ago(strtotime($row['date']));
+            $likes = getLikes($comment_id, 'c');
+            if(isset($_SESSION['user_id'])){
+                $current_user_id = $_SESSION['user_id'];
+            }else{
+                $current_user_id = '';
+            }
+            echo '
+            <div class="commented-section mt-4 border-bottom pb-2">
+            <div class="d-flex flex-row align-items-center commented-user pl-2">
+                <h5 class="mr-2">'.$row['username'].'</h5>
+                <span class="dot mb-1"></span>
+                <span class="mb-1 ml-2">'.$date.'</span>
+            </div>
+            <div class="pt-2 pb-2 pl-2 comment-text-sm">
+                <span>'.$row['body'].'</span>
+            </div>
+                <div class="reply-section pl-2">
+                    <div class="d-flex flex-row align-items-center voting-icons">'
+                    . 
+                    ($current_user_id === $user_id ? '<div class="mt-auto"><a href="/~cen4010s2020_g04/Milestone2/Cheese/inc/delete-comment-handler.php?delete='.$comment_id.'" class="button-style btn btn-info btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    <button onclick="editPost('.$comment_id .');" class="button-style btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></div>' : '') 
+                    .
+                    '<form action="" method="POST" class="mb-0 mt-auto">
+                    <button name="increment" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></button>
+                    <button name="decrement" class="button-style btn btn-info btn-sm"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
+                    <input style="display: none;" name="comment_id" type="text" class="form-control"
+                    value="'.$comment_id.'" >
+                    </form>
+                    <span class="ml-2">'.$likes.'</span>
+                    <span class="dot ml-2"></span>
+                    <h6 class="ml-2 mt-1">Reply</h6>
+                    </div>
+                </div>
+                
+        </div>';
+            }
+        }
+    }
+
     function getComments($post_id){
         require "connection.php";
         
@@ -421,12 +473,12 @@ function displaySearch($search){
         $description = $row['description'];
         $profilePicture=getProfilePic($row['user_id']);
         echo '
-        <div class="card text-center mt-3 shadow" style="min-width: 500px; max-width: 800px;">
+        <div class="card mt-3 shadow" style="min-width: 500px; max-width: 800px;">
             <div class="row no-gutters">
-                <div class="col-md-4">
+                <div class="col-sm-4">
                 <img src="'.$profilePicture.'" class="card-img" alt="...">
                 </div>
-                <div class="col-md-8">
+                <div class="col-sm-8">
                     <div class="card-body">
                     <h5 class="card-title">'.$name.'</h5>
                     <p class="card-text"><b>Location:</b> '.$location.'.</p>
