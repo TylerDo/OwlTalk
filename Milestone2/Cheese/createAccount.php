@@ -9,7 +9,7 @@ include("./inc/headers/header.php")?>
 			<figure class="figure">
 				<i class="fa fa-grav" aria-hidden="true" style="font-size: 10em;"></i>
 			</figure>
-			<h3 style="padding-top: 25px;">Create Your OwlTalk Account</h3>
+			<h3 style="padding-top: 25px;">Create Your Account</h3>
 		</div>
 	</section>
 	
@@ -34,13 +34,13 @@ include("./inc/headers/header.php")?>
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
 				</div>
-				<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="password1" required>
+				<input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="password1" required>
 			</div>
 			<div class="input-group input-group-sm mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-lg">Confirm Password</span>
 				</div>
-				<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="password2" required>
+				<input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="password2" required>
 			</div>
 		
 			
@@ -55,10 +55,14 @@ include("./inc/headers/header.php")?>
 					Create
 					</button>
 				</div>
-				<div class="col-md text-right">
+				 <div >
+                            <?php echo '<a class="col-md text-right btn btn-secondary btn-lg" style="color: 66FCF1;" href="login.php">Login
+                            <i class="fa fa-plus-circle" style="padding-left: 5px;" aria-hidden="true"></i></a>' ?>
+                 </div>
+				<!-- <div class="col-md text-right">
 					<?php echo '<a href="login.php">Login</a>' ?>
 					<i class="fa fa-plus-circle" style="padding-left: 5px;" aria-hidden="true"></i>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		</form>

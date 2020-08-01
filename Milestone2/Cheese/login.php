@@ -15,7 +15,7 @@ if(isset($_SESSION['username'])){
 			<figure class="figure">
 				<i class="fa fa-grav" aria-hidden="true" style="font-size: 10em;"></i>
 			</figure>
-			<h3 style="padding-top: 25px;">Log in to your OwlTalk account</h3>
+			<h3 style="padding-top: 25px;">Log in to your account</h3>
 		</div>
 	</section>
 	
@@ -33,7 +33,7 @@ if(isset($_SESSION['username'])){
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="password" required>
+                        <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="password" required>
                     </div>
                 </div>
             </section>
@@ -46,14 +46,15 @@ if(isset($_SESSION['username'])){
                             Login
                             </button>
                         </div>
-                        <div class="col-md">
-                            <?php echo '<a href="./createAccount.php">Create Account</a>' ?>
-                            <i class="fa fa-plus-circle" style="padding-left: 5px;" aria-hidden="true"></i>
+                        <div >
+                            <?php echo '<a class="col-md btn btn-secondary btn-lg" style="color: 66FCF1;" href="./createAccount.php">Create Account
+                            <i class="fa fa-plus-circle" style="padding-left: 5px;" aria-hidden="true"></i></a>' ?>
                         </div>
-                        <div class="col-md">
-                            <a href="#">Forgot Password</a>
-                            <i class="fa fa-unlock" style="padding-left: 5px;" aria-hidden="true"></i>
-                        </div>
+                        <!-- removed forgot password functionality until we are ready -->
+                       <div class="col-md">
+                       		<!-- <a href="#">Forgot Password</a>
+                            <i class="fa fa-unlock" style="padding-left: 5px;" aria-hidden="true"></i> -->
+                        </div> 
                     </div>
                 </div>
         </form>
