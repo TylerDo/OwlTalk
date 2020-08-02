@@ -1,27 +1,21 @@
 <?php 
     session_start();
     include("./inc/functions.php");
-    if(isset($_SESSION['user_id'])) 
-         {
-             include("./inc/headers/homepage-logged-in-header.php");
-         } //IF LOGGED IN 
-      else
-         {
-             include("./inc/headers/logged-out-header.php");
-         } //IF LOGGED IN      
-              
+    
     if(isset($_POST['increment'])){
         if(isset($_SESSION['user_id'])){
             if(isset($_POST['post_id'])){
                 $post_id = (int)$_POST['post_id'];
                 if($post_id != 0){
                     increment($post_id, "p");
+                    header('location: index.php');
                 }
             }
             elseif(isset($_POST['comment_id'])){
                 $comment_id = (int)$_POST['comment_id'];
                 if($commentj_id != 0){
                     increment($comment_id, "c");
+                    header('location: index.php');
                 }
             }
             
@@ -34,17 +28,30 @@
                 $post_id = (int)$_POST['post_id'];
                 if($post_id != 0){
                     decrement($post_id, "p");
+                    header('location: index.php');
                 }
             }
             elseif(isset($_POST['comment_id'])){
                 $comment_id = (int)$_POST['comment_id'];
                 if($commentj_id != 0){
                     decrement($comment_id, "c");
+                    header('location: index.php');
                 }
             }
             
         }
     }
+
+    
+    
+    if(isset($_SESSION['user_id'])) 
+         {
+             include("./inc/headers/homepage-logged-in-header.php");
+         } //IF LOGGED IN 
+      else
+         {
+             include("./inc/headers/logged-out-header.php");
+         } //IF LOGGED IN   
               ?>
 
 		

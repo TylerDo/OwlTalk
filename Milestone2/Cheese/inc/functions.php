@@ -193,6 +193,7 @@
         
         while($row = mysqli_fetch_assoc($post_result)){
             $comment_id = $row['comment_id'];
+            
             $user_id = $row['user_id'];
             $date = get_time_ago(strtotime($row['date']));
             $likes = getLikes($comment_id, 'c');
@@ -307,7 +308,6 @@ function increment($id, $switch){
                 $_SESSION['error'] = "ERROR, poopie";
             }
         }
-
     }else{
         //if no entry available then INSERT one with a 1 for the like
         $likes = 1;

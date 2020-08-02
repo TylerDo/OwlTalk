@@ -9,6 +9,11 @@
     {
         include("./inc/headers/logged-out-header.php");
     } //IF LOGGED IN      
+
+    if(isset($_GET['id'])){
+        $p_id = $_GET['id'];
+    }
+
     if(isset($_POST['increment'])){
         if(isset($_SESSION['user_id'])){
             if(isset($_POST['post_id'])){
@@ -16,12 +21,14 @@
                 $post_id = (int)$_POST['post_id'];
                 if($post_id != 0){
                     increment($post_id, "p");
+                    header('location: post.php?id='.$p_id);
                 }
             }
             elseif(isset($_POST['comment_id'])){
                 $comment_id = (int)$_POST['comment_id'];
                 if($comment_id != 0){
                     increment($comment_id, "c");
+                    header('location: post.php?id='.$p_id);
                 }
             }
             
@@ -34,12 +41,14 @@
                 $post_id = (int)$_POST['post_id'];
                 if($post_id != 0){
                     decrement($post_id, "p");
+                    header('location: post.php?id='.$p_id);
                 }
             }
             elseif(isset($_POST['comment_id'])){
                 $comment_id = (int)$_POST['comment_id'];
                 if($comment_id != 0){
                     decrement($comment_id, "c");
+                    header('location: post.php?id='.$p_id);
                 }
             }
             
