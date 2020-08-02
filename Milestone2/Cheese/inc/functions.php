@@ -495,4 +495,16 @@ function displaySearch($search){
         </div>';
     }
 }
+
+function displaySearchPosts($search){
+    require "connection.php";
+
+    $sql = "SELECT p.post_id FROM posts AS p, users AS u WHERE u.user_id = p.user_id AND (body LIKE '%$search%' OR title LIKE '%$search%' OR username LIKE '%$search%')";
+
+    $post_result = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_assoc($post_result)){
+        $post = $row['post_id'];
+        getPost($post);
+    }
+}
 ?>

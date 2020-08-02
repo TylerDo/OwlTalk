@@ -56,8 +56,7 @@
 				<div class="navbar-nav">
 					<?php echo '<a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="search.php">People</a> '; ?>
-					<?php echo '<a class="nav-item nav-link" href="#">School</a> '; ?>
-					<?php echo '<a class="nav-item nav-link" href="#">Hobbies</a> '; ?>
+					<?php echo '<a class="nav-item nav-link" href="searchPosts.php">Posts</a> '; ?>
 				</div>
 			</div>
 			<!-- Help Button -->
