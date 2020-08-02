@@ -43,18 +43,18 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
 			<!-- Login Button -->
-			<?php echo '<a class="button-style btn btn-info btn-sm" href="./login.php" role="button">Login</a>'; ?>
-			<i class="fa fa-sign-in" style="padding-left: 5px;" aria-hidden="true"></i>
+			<?php echo '<a class="button-style btn btn-info btn-sm" href="./login.php" role="button">Login
+			<i class="fa fa-sign-in" style="padding-left: 5px;" aria-hidden="true"></i></a>'; ?>
 			<!-- User Icon -->
 			<nav class="navbar navbar-light">
 			</nav>
-			<?php echo '<a class="navbar-brand" href="#">Cheese</a> '; ?>
+			<?php echo '<a class="navbar-brand" href="index.php">Cheese</a> '; ?>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<?php echo '<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> '; ?>
+					<?php echo '<a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="search.php">People</a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="#">School</a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="#">Hobbies</a> '; ?>

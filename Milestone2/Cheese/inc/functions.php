@@ -430,8 +430,12 @@ function getProfile($user_id){
                         <a href="post.html" class="card-link">Bookmarked Posts</a>
                     </div>
                     <!-- Create a new block button with modal -->
-                    <button type="button" class="button-style btn btn-info btn-sm" id="updateProfileButton" data-toggle="modal" data-target="#updateProfile">Edit Profile</button>
-                </div>
+                    ';
+                    if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user_id){
+                        echo '
+                    
+                    <button type="button" class="button-style btn btn-info btn-sm" id="updateProfileButton" data-toggle="modal" data-target="#updateProfile">Edit Profile</button>';}
+                echo '</div>
         </div>';
     }
     else{

@@ -41,12 +41,11 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
 			<!-- Logout Button -->
-			<?php echo '<a class="button-style btn btn-info btn-sm" href="logout.php" role="button">logout</a>'; ?>
-			<i class="fa fa-sign-in" style="padding-left: 5px;" aria-hidden="true"></i>
+			<?php echo '<a class="button-style btn btn-info btn-sm" href="logout.php" role="button">logout
+			<i class="fa fa-sign-in" style="padding-left: 5px;" aria-hidden="true"></i></a>'; ?>
 			<!-- User Icon -->
 			<nav class="navbar navbar-light">
-				<?php echo '<a class="navbar-brand" href="profile.php?id='.$user_id.'
-				">
+				<?php echo '<a class=" btn button-style navbar-brand" href="profile.php?id='.$user_id.'">
 				<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 				</a> '; ?> 
 			</nav>
@@ -56,7 +55,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<?php echo '<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> '; ?>
+					<?php echo '<a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="search.php">People</a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="#">School</a> '; ?>
 					<?php echo '<a class="nav-item nav-link" href="#">Hobbies</a> '; ?>
