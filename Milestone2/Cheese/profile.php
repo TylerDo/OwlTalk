@@ -41,7 +41,7 @@
             }
             elseif(isset($_POST['comment_id'])){
                 $comment_id = (int)$_POST['comment_id'];
-                if($commentj_id != 0){
+                if($comment_id != 0){
                     increment($comment_id, "c");
                 }
             }
@@ -59,7 +59,7 @@
             }
             elseif(isset($_POST['comment_id'])){
                 $comment_id = (int)$_POST['comment_id'];
-                if($commentj_id != 0){
+                if($comment_id != 0){
                     decrement($comment_id, "c");
                 }
             }
