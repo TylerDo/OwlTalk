@@ -15,29 +15,18 @@ if(isset($_POST['update-profile'])){
     $filename = $_FILES['image']['name'];
     $fileExt = explode('.', $filename);
     $fileExt = strtolower(end($fileExt));
+    
+    if(file_exists($_FILES['image']['tmp_name']) && is_uploaded_file($_FILES['image']['tmp_name'])){
+        $target='../images/'.$_SESSION['user_id'].".".$fileExt;
+        $actualTarget = './images/'.$_SESSION['user_id'].".".$fileExt;
 
-    if($_FILES['image']['size'] > 1000000){
-        $_SESSION['error'] = "Image too big".$_FILES['image']['name'];
+        if(!move_uploaded_file($_FILES['image']['tmp_name'], $target)){ //if failure to add img to server
+                $_SESSION['error'] = "Could not upload image to server ".$_FILES['image']['name'];
             header('location: ../profile.php?id='.$_SESSION['user_id']);
             exit();
-    }
-
-    print_r($_POST['image']);
-    
-    if(isset($_POST['image'])){
-        if(file_exists($_FILES['image']['tmp_name']) && is_uploaded_file($_FILES['image']['tmp_name'])){
-            $target='../images/'.$_SESSION['user_id'].".".$fileExt;
-            $actualTarget = './images/'.$_SESSION['user_id'].".".$fileExt;
-    
-            if(!move_uploaded_file($_FILES['image']['tmp_name'], $target)){ //if failure to add img to server
-                 //$_SESSION['error'] = "Could not upload image to server ".$_FILES['image']['name'];
-                header('location: ../profile.php?id='.$_SESSION['user_id']);
-                exit();
-            }
-            $image = $actualTarget; //so we stay in the file
-        }else{
-            $image = "";
         }
+        
+        $image = $actualTarget; //so we stay in the file
     }
 	else{
         $image = "";
@@ -110,7 +99,7 @@ if(isset($_POST['update-profile'])){
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             $_SESSION['error'] = "SQL error";
-            //header('location: ../profile.php?id='. $user_id);
+            header('location: ../profile.php?id='. $user_id);
             exit();
         }
         else{ //UPDATE PROFILE IN DATABASE
@@ -122,20 +111,20 @@ if(isset($_POST['update-profile'])){
             exit();
         }
            mysqli_stmt_close($stmt);
-           mysqli_close($conn);
+           mysqli_close($con);
     }
     else{
         //ELSE CREATE THE PROFILE
 
-        $sql = "INSERT INTO profiles (user_id, image, name, location, major, hobbies, description) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO profiles (user_id, image, name, location, major, hobbies, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            $_SESSION['error'] = "SQL error";
+            $_SESSION['error'] = "SQL error" . mysqli_error($con);
             header('location: ../profile.php?id='. $user_id);
             exit();
         }
         else{
-            mysqli_stmt_bind_param($stmt, "isssss", $user_id, $image, $name, $location, $major, $hobbies, $description);
+            mysqli_stmt_bind_param($stmt, "issssss", $user_id, $image, $name, $location, $major, $hobbies, $description);
             mysqli_stmt_execute($stmt);
     
             $_SESSION['success'] = "Profile updated!";
